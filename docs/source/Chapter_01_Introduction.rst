@@ -1,7 +1,7 @@
 1. Introduction
 ================
 
-.. image:: pluginicon.png
+.. image:: icon.png
    :class: with-shadow
    :align: left
 
