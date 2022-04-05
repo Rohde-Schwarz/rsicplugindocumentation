@@ -1,7 +1,7 @@
 Welcome to RsIC documentation
 ===============================
 
-.. image:: images/pluginicon.png
+.. image:: pluginicon.png
    :class: with-shadow
    :align: right
 
