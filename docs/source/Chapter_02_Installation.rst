@@ -5,7 +5,7 @@ To install the plugin, you need Pycharm 2021.3.2 or newer.
 
 **Installation from a File:**
 
-In Pycharm, go to menu File -> Settings -> Plugins and choose *Install Plugin from Disk*:
+In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:
 
 .. image:: images/menu_install_from_marketplace.png
 
