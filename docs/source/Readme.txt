@@ -5,8 +5,12 @@ Check out the full documentation here: https://rsinstrumentcsharp.readthedocs.io
 
 Version history
 
-Version 0.9.15 - 04.04.2022
+Version 0.9.20 - 17.06.2022
 
+    - 0.9.20 Added FileBrowser feature, Added feature for loose SCPI auto-completion.
+    - 0.9.18 Added support for VISA in Linux (Ubuntu) and macOS.
+    - 0.9.17 Fixed ZVA SCPI Tree cmds read/write access, added Go to Remote / Local.
+    - 0.9.16 Added ZVA,CMW,RTP,FPC support. Fixed: custom icons bug, lagging IP address entry.
     - 0.9.15 Fixes of issues found during creation of the documentation.
     - 0.9.14 Plugin is limited for one project only. If more projects are opened, it works only in the one that uses it first.
     - 0.9.13 Fixed autocompletion popups on any strings, changed ITW find next GUI elements.

@@ -11,8 +11,9 @@ Welcome to the RsIC Getting Started
 .. include:: Chapter_06_InstrumentsToolWindow.rst
 .. include:: Chapter_07_FunctionPanelScpiTree.rst
 .. include:: Chapter_08_FunctionPanelHardcopy.rst
-.. include:: Chapter_09_WritingPythonScript.rst
-.. include:: Chapter_10_PluginSettings.rst
+.. include:: Chapter_09_FunctionPanelFileBrowser.rst
+.. include:: Chapter_10_WritingPythonScript.rst
+.. include:: Chapter_11_PluginSettings.rst
 
 
 .. toctree::

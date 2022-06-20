@@ -9,7 +9,7 @@ In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin 
 
 .. image:: images/menu_install_from_marketplace.png
 
-Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-0.9.15.zip``
+Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-0.9.20.zip``
 
 After that, you have to restart the Pycharm IDE.
 

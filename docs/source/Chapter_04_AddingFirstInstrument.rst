@@ -3,7 +3,7 @@
 4. Adding your first Instrument
 ================================
 
-Click on ``+Add new Instrument`` button, and the following dialog comes up:
+Click on ``+Add new Instrument`` button (either one), and the following dialog comes up:
 
 .. image:: images/add_new_instrument.png
 

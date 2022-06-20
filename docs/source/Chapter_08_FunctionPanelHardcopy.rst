@@ -8,8 +8,10 @@ Hardcopy is a function that captures content of the instrument's screen. Our plu
 Description of the controls:
 
 1. **Function Panel Hardcopy Tab** - select this tab to access Hardcopy features.
-2. **Screenshot Action Button** - requires active connection (see SCPI Communicator). If connected, this button starts the screenshot acquisition and transfer to your computer.
-3. **Save to File Button** - available after the successful screenshot acquisition, allows saving the picture in **jpg** or **png** format and original size.
-4. **Copy to Clipboard Button** - copies the file to Clipboard in original size.
-5. **Fit to View** - automatically performed after the successful screenshot acquisition. Adjust the picture size to fit the view with limited width or height. Also does zoom > 1:1.
-6. **Show in Original Size** - changes the picture back to the original size and activates the view pane's scroll controls if necessary.
+2. **Go Automatically to Local Afterwards** - after the screenshot is done, the instrument goes to local.
+3. **Auto File Naming** - if checked, you do not need to enter new name by each "Save", you only enter it once, and the further ones are then auto-named with name suffix indexes _001,_002,_003 and so on...
+4. **Screenshot Action Button** - requires active connection (see SCPI Communicator). If connected, this button starts the screenshot acquisition and transfer to your computer.
+5. **Save to File Button** - available after the successful screenshot acquisition, allows saving the picture in **jpg** or **png** format and original size.
+6. **Copy to Clipboard Button** - copies the file to Clipboard in original size.
+7. **Fit to View** - automatically performed after the successful screenshot acquisition. Adjust the picture size to fit the view with limited width or height. Also does zoom > 1:1.
+8. **Show in Original Size** - changes the picture back to the original size and activates the view pane's scroll controls if necessary.

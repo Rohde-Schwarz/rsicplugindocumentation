@@ -1,4 +1,4 @@
-9. Writing Python Script
+10. Writing Python Script
 =========================
 
 .. tip::
@@ -21,7 +21,7 @@ This is going to be the script variable name for our object:
     This is then used in cases where your script variable name does not fit any instrument alias.
     See the :ref:`settings-scpi-code-completion`.
 
-9.1 SCPI Communicator paste function
+10.1 SCPI Communicator paste function
 """""""""""""""""""""""""""""""""""""
 
 Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
@@ -49,7 +49,7 @@ Next, enter the ``*IDN?`` to the *Field 10*, and hit the *Field 5 (Paste to Scri
 .. tip::
     You can change the format of the pasted code with templates in :ref:`settings-templates`.
 
-9.2 Auto-completion in script
+10.2 Auto-completion in script
 """"""""""""""""""""""""""""""
 
 Another way to write your SCPI script is the SCPI auto-completion feature. SCPI auto-completion works with script call expressions, where the origin object name is your instrument alias,
@@ -60,7 +60,7 @@ and the method contains an argument of string-type. Type (do not copy/paste) for
 .. tip::
     You can force the auto-completion window to pop up with the keyboard combo **CTRL+SPACE**
 
-9.3 Search in the script
+10.3 Search in the script
 """""""""""""""""""""""""
 
 The last option is to use right-click context menu:

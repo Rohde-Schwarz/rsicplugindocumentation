@@ -15,4 +15,5 @@ It is optimized, although not exclusive to be used with our `RsInstrument Python
     - SCPI Tree - you can read out all the SCPI commands supported by your instrument.
     - SCPI commands auto-completion - the plugin helps you to write your SCPI commands faster and error-free.
     - Hardcopy screenshot - quickly make screenshot of your instrument's screen and save it to your PC.
+    - File Browser - use CTRL+C / CTRL+V to seamlessly transfer files from / to instrument or between instruments.
     - More interesting features coming in the future...
