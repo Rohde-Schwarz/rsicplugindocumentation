@@ -21,7 +21,7 @@ Description of the controls:
 3. **Show Editor Context Menu Item: Search Command** - allow for this entry in the script editor right-click context menu.
 4. **Show Add Instrument Button at the Top** - showing the Add Instrument button on the top of the main panel is handy, if you have too many instruments in the list. Having the add button at the top saves you the scrolling down action.
 5. **Export Plugin Settings** - Exports all the settings and the instruments list to a xml file.
-6. **Import Plugin Settings** - Imports the selected xml file as a plugin settings. You need to restart the IDE afterwards.
+6. **Import Plugin Settings** - Imports the selected xml file as a plugin setting. You need to restart the IDE afterwards.
 7. **Export SCPI Tree Cache** - exports all the cached SCPI Trees to a single zip file. This way you can share or backup all the read-out SCPI Trees without a need to have each instrument physically available.
 8. **Import SCPI Tree Cache** - imports the SCPI Trees contained in the selected zip file - copies them into the plugin's cache. Overwrites the existing ones.
 
@@ -36,7 +36,7 @@ The chapter :ref:`Instrument Panel List<instrument-panel-list>` shows how you ca
 Description of the special controls:
 
 1. **Instruments Icon Size** - Change the icon size either with the slider or by entering the direct number.
-2. **Maximum Description Length per Row** - limits the description width, so your panel can be compact in width. Use this to prevent e.g. long Resouce Name strings to hide the action buttons.
+2. **Maximum Description Length per Row** - limits the description width, so your panel can be compact in width. Use this to prevent e.g. long Resource Name strings to hide the action buttons.
 
 Other checkbox fields names correspond to the Instrument Panel elements. The changes have immediate effect, so you can see how your instruments list will look like.
 
@@ -51,7 +51,7 @@ Common settings for all the ITWs.
 Description of the controls:
 
 1. **Instruments Icon Size** - change the ITW header icon size.
-2. **Enable All Function Panels** - overrides the internal table with the information which instrument supports which feature, and enables all the function panels. Use this on you own risk...
+2. **Enable All Function Panels** - overrides the internal table with the information which instrument supports which feature, and enables all the function panels. Use this on your own risk...
 3. **VISA Timeout in ms for SCPI Tree reading** - maximum time the plugin waits for the instrument's response when reading the SCPI Tree. You can adjust it higher if your instrument needs more time to respond.
 4. **VISA Timeout in ms for File Browser reading** - maximum time the plugin waits for the instrument's response when performing File Browser operations. You can adjust it higher if your instrument needs more time to respond.
 

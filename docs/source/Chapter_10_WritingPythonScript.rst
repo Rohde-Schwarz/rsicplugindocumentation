@@ -17,7 +17,7 @@ This is going to be the script variable name for our object:
 .. image:: images/python_script_instrument_alias.png
 
 .. tip::
-    In some cases, where you can not have the alias equal to the script variable name, you can set a default instrument for SCPI Tree.
+    In some cases, where you cannot have the alias equal to the script variable name, you can set a default instrument for SCPI Tree.
     This is then used in cases where your script variable name does not fit any instrument alias.
     See the :ref:`settings-scpi-code-completion`.
 

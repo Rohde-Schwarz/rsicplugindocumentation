@@ -13,5 +13,5 @@ Description of the controls:
 4. **Screenshot Action Button** - requires active connection (see SCPI Communicator). If connected, this button starts the screenshot acquisition and transfer to your computer.
 5. **Save to File Button** - available after the successful screenshot acquisition, allows saving the picture in **jpg** or **png** format and original size.
 6. **Copy to Clipboard Button** - copies the file to Clipboard in original size.
-7. **Fit to View** - automatically performed after the successful screenshot acquisition. Adjust the picture size to fit the view with limited width or height. Also does zoom > 1:1.
+7. **Fit to View** - automatically performed after the successful screenshot acquisition. Adjust the picture size to fit the view with limited width or height. Does the zoom > 1:1 too.
 8. **Show in Original Size** - changes the picture back to the original size and activates the view pane's scroll controls if necessary.

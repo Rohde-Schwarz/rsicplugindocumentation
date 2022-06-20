@@ -34,7 +34,7 @@ Description of the controls:
 
     |
 
-    This makes your your list looking like this:
+    This makes your list looking like this:
 
     .. image:: images/instrument_panel_list_compact.png
 
