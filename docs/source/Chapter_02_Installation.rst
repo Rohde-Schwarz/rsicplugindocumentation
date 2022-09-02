@@ -9,7 +9,12 @@ Same thing, go to menu *File -> Settings -> Plugins* and choose the Tab *Marketp
 
 .. image:: images/menu_install_from_marketplace.png
 
-Type the search text, for example 'rohde', and hit install. 
+Type the search text, for example 'rohde', and hit install.
+
+.. hint::
+
+	If you do not see the plugin listed, you have a Pycharm version older than **2022.2**.
+	Update your Pycharm first, and repeat the process.
 
 After that, you have to restart the Pycharm IDE.
 
