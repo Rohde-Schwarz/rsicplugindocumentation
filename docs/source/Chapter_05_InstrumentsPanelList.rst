@@ -9,7 +9,7 @@ Example of the IPL:
 
 Description of the controls:
 
-1. **SCPI Logger Toggle** - opens/closes SCPI Logger Tool Window. It logs the entire communication with your instrument coming from the plugin, and optionally your python script (for that, you need to switch on logging to UDP - see the `RsInstrument Logging help <https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#logging>`_).
+1. **Collapse the Instrument Panel** - You can minimize the Instrument Panel to a small icon and the name.
 2. **Open Instrument Tool Window** - opens dedicated Instrument Tool Window (ITW) with all the functions for the instrument. See the :ref:`6. Instrument Tool Window`.
 3. **Test Connection** - tests, whether the connection to your instrument can be established. The connection is closed afterwards.
 4. **Configure Instrument** - Opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
