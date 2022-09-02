@@ -1,5 +1,5 @@
-9. Function Panel File Browser
-==============================
+9. Function Panel - File Browser
+=================================
 
 File browser is a handy feature that allows you to seamlessly copy files between your computer and your instrument, or even between two of your instruments.
 The usage is just like your standard file explorer - copy / paste with CTRL+C / CTRL+V, double-click to open the file in Pycharm.

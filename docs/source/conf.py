@@ -30,6 +30,7 @@ release = '1.0.0'
 extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
+    'sphinx.ext.autosectionlabel',
     'recommonmark'
 ]
 

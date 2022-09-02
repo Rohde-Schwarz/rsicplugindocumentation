@@ -1,13 +1,13 @@
-10. Writing Python Script
+11. Writing Python Script
 =========================
 
 .. tip::
     Before you continue with this chapter, we recommend to read out the SCPI Tree of your instrument.
     That will allow you to use SCPI auto-completion in the communicator and in your python script:
 
-    - Open the Instrument Tool Window (:ref:`instrument-tool-window`)
+    - Open the Instrument Tool Window (:ref:`6. Instrument Tool Window`)
     - Connect to your instrument. (:ref:`SCPI Communicator Field 2<scpi-communicator>`)
-    - Use the Field 2 (Read Tree) of the :ref:`function-panel-scpi-tree`
+    - Use the Field 2 (Read Tree) of the :ref:`7. Function Panel - SCPI Tree`
 
 Let us write some python remote-control script for your SMW200A.
 First, we import the RsInstrument package and create our SMW object.
@@ -21,7 +21,7 @@ This is going to be the script variable name for our object:
     This is then used in cases where your script variable name does not fit any instrument alias.
     See the :ref:`settings-scpi-code-completion`.
 
-10.1 SCPI Communicator paste function
+11.1 SCPI Communicator paste function
 """""""""""""""""""""""""""""""""""""
 
 Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
@@ -49,7 +49,7 @@ Next, enter the ``*IDN?`` to the *Field 10*, and hit the *Field 5 (Paste to Scri
 .. tip::
     You can change the format of the pasted code with templates in :ref:`settings-templates`.
 
-10.2 Auto-completion in script
+11.2 Auto-completion in script
 """"""""""""""""""""""""""""""
 
 Another way to write your SCPI script is the SCPI auto-completion feature. SCPI auto-completion works with script call expressions, where the origin object name is your instrument alias,
@@ -60,7 +60,7 @@ and the method contains an argument of string-type. Type (do not copy/paste) for
 .. tip::
     You can force the auto-completion window to pop up with the keyboard combo **CTRL+SPACE**
 
-10.3 Search in the script
+11.3 Search in the script
 """""""""""""""""""""""""
 
 The last option is to use right-click context menu:

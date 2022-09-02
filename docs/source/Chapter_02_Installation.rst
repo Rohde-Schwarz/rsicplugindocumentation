@@ -1,24 +1,30 @@
 2. Installation
 ================
 
-To install the plugin, you need Pycharm 2021.3.2 or newer.
+To install the plugin, you need *Pycharm 2022.2* or newer.
 
 **Installation from a File:**
 
 In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:
 
-.. image:: images/menu_install_from_marketplace.png
+.. image:: images/menu_install_from_file.png
 
-Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-0.9.20.zip``
+Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-1.0.1.zip``
 
 After that, you have to restart the Pycharm IDE.
 
 .. warning::
     
-	**Do not unpack the .ZIP file!!!** Select the **.ZIP** file for the installation.
-	Pycharm allows you to select also the **.JAR** file, but the plugin will not work properly.
+    **Do not unpack the .ZIP file!!!** Select the **.ZIP** file for the installation.
+    Pycharm allows you to also select the included **.JAR** files, but the plugin will not work properly.
 
 
 **Installation from the Marketplace:**
 
-This feature becomes available after the official release.
+Same thing, go to menu *File -> Settings -> Plugins* and choose the Tab *Marketplace*:
+
+.. image:: images/menu_install_from_marketplace.png
+
+Type the search text, for example 'rohde', and hit install. 
+
+After that, you have to restart the Pycharm IDE.

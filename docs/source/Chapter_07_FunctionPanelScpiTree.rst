@@ -1,6 +1,4 @@
-.. _function-panel-scpi-tree:
-
-7. Function Panel SCPI Tree
+7. Function Panel - SCPI Tree
 ==============================
 
 SCPI Tree is one tab of the Function Panel that contains multiple features depending on whether they are supported by the instrument.

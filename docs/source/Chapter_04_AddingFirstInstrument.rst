@@ -18,6 +18,11 @@ Take notice of the **Alias** - it has to be unique in your list of instruments.
 With this string, in our case ``smw``, we are going to reference our instrument from python scripts.
 
 .. tip::
+    If you want to use the same alias in more than one instrument, make only one of them Active by checking the checkbox **Instrument Active**.
+    Inactive instruments work just like the active ones, with the exception of SCPI auto-completion in your python scripts. There, the SCPI auto-completion relates only to the currently active instruments.
+
+
+.. tip::
     If your LAN connection does not work, try to use the **Ping** button to see whether the instrument is available on LAN.
     Searching for LAN instruments only works in certain scenarios. If your instrument does not appear in the found list, it does not necessary mean that it is not available.
     The Search feature is very helpful with USB-TMC instruments, where it finds all that are available:

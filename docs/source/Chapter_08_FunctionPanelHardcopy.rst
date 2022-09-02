@@ -1,5 +1,5 @@
-8. Function Panel Hardcopy
-===========================
+8. Function Panel - Hardcopy
+=============================
 
 Hardcopy is a function that captures content of the instrument's screen. Our plugin offers that with one click (OK, it could be up to 3 clicks).
 

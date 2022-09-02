@@ -1,5 +1,3 @@
-.. _instrument-tool-window:
-
 6. Instrument Tool Window
 ==========================
 
@@ -38,6 +36,16 @@ Description of the controls:
 7. **Communication Action Selector** - select the type of write/query action - standard, with OPC, query binary data. The setting is persistent.
 8. **Save Binary Response to File** - this button is enabled, when you have received a binary response from the instrument.
 9. **Copy Response to Clipboard** - enabled when the SCPI Response Field (Field 12) is non-empty.
-10. **SCPI Command Field with Auto-completion** - write your SCPI command here. If your instrument has a SCPI Tree available (see :ref:`function-panel-scpi-tree`), this field offers you auto-completion for SCPI commands.
+10. **SCPI Command Field with Auto-completion** - write your SCPI command here. If your instrument has a SCPI Tree available (see :ref:`7. Function Panel - SCPI Tree`), this field offers you auto-completion for SCPI commands.
 11. **SCPI Response Field Resizer** - change the height of the response field to fit your needs.
 12. **SCPI Response Field** - text field that contains responses received from the instrument.
+
+.. tip::
+    If you use HiSlip or VXI-11, switch to the mode write/query with OPC (Field 7). This is very convenient, since in case of an SCPI error, you do not have to wait for VISA timeout, but rather you get the result immediately:
+	
+	.. image:: images/itw_comm_with_opc.png
+
+.. hint::
+    The **Connect/Disconnect Button** (2) has a right-click context menu with some useful features:
+	
+	.. image:: images/connect_button_context_menu.png
