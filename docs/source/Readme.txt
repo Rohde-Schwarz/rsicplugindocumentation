@@ -5,6 +5,11 @@ Check out the full documentation here: https://rsicpycharmplugin.readthedocs.io/
 
 Version history
 
+Version 1.1.0 - xx.10.2022
+
+	- Changed the filtering controls of the Instrument Panels List
+	- Improved mechanism for Inactive/Active instruments in the Configuration Dialog
+
 Version 1.0.1 - 01.09.2022
 
     First Released Version

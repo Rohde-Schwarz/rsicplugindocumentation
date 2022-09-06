@@ -1,9 +1,7 @@
 Welcome to RsIC documentation
 ===============================
 
-.. image:: icon.png
-   :class: with-shadow
-   :align: right
+.. image:: images/pycharm_rsic_teaser.png
 
 .. toctree::
    :maxdepth: 2
