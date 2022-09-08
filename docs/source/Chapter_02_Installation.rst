@@ -1,7 +1,38 @@
 2. Installation
 ================
 
-To install the plugin, you need *Pycharm 2022.2* or newer.
+Preconditions
+"""""""""""""""""""""""
+- Install *Pycharm 2022.2* or newer for Windows, macOS or Linux:
+
+.. image:: images/pycharm_download_button.png
+   :target: https://www.jetbrains.com/pycharm/download
+
+- Install Python Interpretter 3.7 or newer:
+
+.. image:: images/python_download_button.png
+   :target: https://www.python.org/downloads/
+
+- Install RsInstrument Python package with pip:
+
+.. image:: images/rsinstrument_button.png
+   :target: https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#installation
+   
+- Install Rohde & Schwarz VISA (optional):
+
+.. image:: images/rs_visa_button.png
+   :target: https://www.rohde-schwarz.com/applications/r-s-visa-application-note_56280-148812.html
+   
+- Install the Pycharm RsIC Plugin:
+
+Plugin Installation
+"""""""""""""""""""""""
+
+**Installation with this button:**
+
+.. raw:: html
+
+    <p align="center"><iframe width="245px" height="48px" frameBorder="0" src="https://plugins.jetbrains.com/embeddable/install/19828"></iframe></p>
 
 **Installation from the Marketplace:**
 
@@ -13,8 +44,8 @@ Type the search text, for example 'rohde', and hit install.
 
 .. hint::
 
-	If you do not see the plugin listed, you have a Pycharm version older than **2022.2**.
-	Update your Pycharm first, and repeat the process.
+    If you do not see the plugin listed, you have a Pycharm version older than **2022.2**.
+    Update your Pycharm first, and repeat the process.
 
 After that, you have to restart the Pycharm IDE.
 
