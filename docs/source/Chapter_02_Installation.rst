@@ -13,7 +13,7 @@ Preconditions
 .. image:: images/python_download_button.png
    :target: https://www.python.org/downloads/
 
-- Install RsInstrument Python package with pip:
+- Install RsInstrument Python package:
 
 .. image:: images/rsinstrument_button.png
    :target: https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#installation
