@@ -1,2 +1,4 @@
 /docs/build/
 /docs/source/images/*.epgz
+/docs/source/images/*.drawio.bkp
+/docs/source/images/*.drawio

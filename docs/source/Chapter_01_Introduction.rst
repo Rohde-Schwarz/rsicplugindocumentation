@@ -5,7 +5,7 @@
    :class: with-shadow
    :align: left
 
-Rohde & Schwarz Instrument Control Pycharm plugin (RSIC) is targeted for our customers that use Pycharm for writing python instrument remote-control scripts.
+Rohde & Schwarz Instrument Control Pycharm plugin (RsIC) is targeted for our customers that use Pycharm for writing python instrument remote-control scripts.
 It is optimized, although not exclusive to be used with our `RsInstrument Python package <https://pypi.org/project/RsInstrument/>`_.
 
 

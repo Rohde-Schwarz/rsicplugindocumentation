@@ -11,4 +11,4 @@ Click on the Tool Window gutter to open it (orange description):
     You might experience a situation, where the tab *Rohde & Schwarz Instruments* is not available.
     In such case, you can always open it in the Pycharm menu *View->Tool Windows->Rohde & Schwarz Instruments*
 
-.. image:: images/main_panel.png
+.. image:: images/RsIc-main_panel.drawio.png

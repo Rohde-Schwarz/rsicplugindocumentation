@@ -1,6 +1,8 @@
 2. Installation
 ================
 
+You can use the plugin on Windows, macOS, or Linux.
+
 Preconditions
 """""""""""""""""""""""
 - Install *Pycharm 2022.2* or newer for Windows, macOS or Linux:
@@ -8,7 +10,7 @@ Preconditions
 .. image:: images/pycharm_download_button.png
    :target: https://www.jetbrains.com/pycharm/download
 
-- Install Python Interpretter 3.7 or newer:
+- Install Python Interpreter 3.7 or newer:
 
 .. image:: images/python_download_button.png
    :target: https://www.python.org/downloads/
@@ -38,7 +40,7 @@ Plugin Installation
 
 Same thing, go to menu *File -> Settings -> Plugins* and choose the Tab *Marketplace*:
 
-.. image:: images/menu_install_from_marketplace.png
+.. image:: images/RsIc-menu_install_from_marketplace.drawio.png
 
 Type the search text, for example 'rohde', and hit install.
 
@@ -53,9 +55,9 @@ After that, you have to restart the Pycharm IDE.
 
 In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:
 
-.. image:: images/menu_install_from_file.png
+.. image:: images/RsIc-menu_install_from_file.drawio.png
 
-Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-1.0.1.zip``
+Select the zip file with the plugin, e.g.: ``RsConnectivityPycharmPlugin-1.1.0.zip``
 
 After that, you have to restart the Pycharm IDE.
 

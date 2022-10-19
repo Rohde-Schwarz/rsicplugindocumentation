@@ -5,40 +5,40 @@ Instruments Panels List (IPL) serves as an overview of all your instrument, and 
 
 Example of the IPL:
 
-.. image:: images/instrument_panel_list.png
+.. image:: images/RsIc-instrument_panel_list.drawio.png
 
 Description of the controls:
 
 1. **Collapse the Instrument Panel** - You can minimize the Instrument Panel to a small icon and the name.
 2. **Open Instrument Tool Window** - opens dedicated Instrument Tool Window (ITW) with all the functions for the instrument. See the :ref:`6. Instrument Tool Window`.
-3. **Test Connection** - tests, whether the connection to your instrument can be established. The connection is closed afterwards.
-4. **Configure Instrument** - Opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
-5. **Remove Instrument** - removes the instrument from the list.
+3. **Test the Connection** - tests, whether the connection to your instrument can be established. The connection is closed afterwards.
+4. **Configure the Instrument** - Opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
+5. **Remove the Instrument** - removes the instrument from the list.
 
 .. tip::
     You can adjust the order by drag-and-drop:
 
-    .. image:: images/instrument_list_drag_drop.png
+    .. image:: images/RsIc-instrument_list_drag_drop.drawio.png
 
 .. tip::
     Adjust the look and feel in General Plugin Settings:
 
-    .. image:: images/general_settings_invoke.png
+    .. image:: images/RsIc-general_settings_invoke.drawio.png
 
     |
 
-    .. image:: images/plugin_settings_instr_panels.png
+    .. image:: images/RsIcSettings-instrument_panels.drawio.png
 
     |
 
     This makes your list having this compact style:
 
-    .. image:: images/instrument_panel_list_compact.png
+    .. image:: images/RsIc-instrument_panel_list_compact.drawio.png
 
 .. tip::
     You can reach all the functionalities (and some more) through the context menu - right-click on the instrument picture. Now, select the **Open in dedicated Window** or press 'Q'
 
-    .. image:: images/instrument_panel_context_menu_open_itw.png
+    .. image:: images/RsIc-instrument_panel_context_menu_open_itw.drawio.png
 
     |
 

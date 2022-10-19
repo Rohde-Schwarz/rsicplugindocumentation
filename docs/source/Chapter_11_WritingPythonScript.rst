@@ -6,18 +6,18 @@
     That will allow you to use SCPI auto-completion in the communicator and in your python script:
 
     - Open the Instrument Tool Window (:ref:`6. Instrument Tool Window`)
-    - Connect to your instrument. (:ref:`SCPI Communicator Field 2<scpi-communicator>`)
-    - Use the Field 2 (Read Tree) of the :ref:`7. Function Panel - SCPI Tree`
+    - Connect to your instrument. (:ref:`SCPI Communicator Field 1<scpi-communicator>`)
+    - Use the Field 2 (Read from Instruemnt) of the :ref:`7. Function Panel - SCPI Tree`
 
 Let us write some python remote-control script for your SMW200A.
 First, we import the RsInstrument package and create our SMW object.
-The most important value that connect your instrument from the list to your python script is the **ALIAS**, in our case, ``smw``.
+The most important value that binds your instrument from the list to your python script is the **ALIAS**, in our case, ``smw``.
 This is going to be the script variable name for our object:
 
-.. image:: images/python_script_instrument_alias.png
+.. image:: images/RsIcAutoComp-aliases.drawio.png
 
 .. tip::
-    In some cases, where you cannot have the alias equal to the script variable name, you can set a default instrument for SCPI Tree.
+    In some cases, where you cannot have the alias equal to the script variable name, you can set a **Default Instrument for SCPI Tree**.
     This is then used in cases where your script variable name does not fit any instrument alias.
     See the :ref:`settings-scpi-code-completion`.
 
@@ -26,7 +26,7 @@ This is going to be the script variable name for our object:
 
 Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
 
-.. image:: images/comm_panel_essentials.png
+.. image:: images/RsIcAutoComp-comm_panel_essentials.drawio.png
 
 Use the *Field 4 (Paste Init Snippet)*, to insert for example this code:
 
@@ -36,7 +36,7 @@ Use the *Field 4 (Paste Init Snippet)*, to insert for example this code:
 
     smw = RsInstrument('TCPIP::10.102.52.47::hislip0', reset=False)
 
-Next, enter the ``*IDN?`` to the *Field 10*, and hit the *Field 5 (Paste to Script Button)*. You script will look like this:
+Next, enter the ``*IDN?`` to the *Field 11*, and hit the *Field 5 (Paste to Script Button)*. You script will look similar to this:
 
 .. code-block:: python
 
@@ -57,17 +57,19 @@ and the method contains an argument of string-type. Type (do not copy/paste) for
 
 .. image:: images/script_autocomplete_suggestions.png
 
+Select your desired command and use **TAB** to insert it. Pycharm immediately shows you another part of the command to auto-complete.
+
 .. tip::
     You can force the auto-completion window to pop up with the keyboard combo **CTRL+SPACE**
 
 11.3 Search in the script
 """""""""""""""""""""""""
 
-The last option is to use right-click context menu:
+Another option is to use right-click context menu. Right-click when your caret is placed between quotes in a method with first string parameter:
 
-.. image:: images/script_script_context_menu.png
+.. image:: images/RsIcAutoComp-search_in_script.drawio.png
 
 The already written command is pre-filled to the search box, and you can change or amend it.
 **Double-click** on the desired command line in the table to insert it into your script:
 
-.. image:: images/script_context_menu_search_popup.png
+.. image:: images/RsIcAutoComp-script_context_menu_search_popup.drawio.png
