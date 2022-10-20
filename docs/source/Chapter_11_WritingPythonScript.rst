@@ -62,7 +62,47 @@ Select your desired command and use **TAB** to insert it. Pycharm immediately sh
 .. tip::
     You can force the auto-completion window to pop up with the keyboard combo **CTRL+SPACE**
 
-11.3 Search in the script
+11.3 Pasting from plain SCPI-scripts
+""""""""""""""""""""""""""""""""""""
+
+If you have a list of SCPI commands from another source, for example from our user manuals, you can paste the line in you script as write/query snippets. Let us take the following R&S FSW example of setting one measurement channel:
+
+.. code-block:: console
+
+    *RST
+    INSTrument:CREate:NEW IQ,'IQ 1'
+    SENS:SWEEP:COUNT 6
+    DISP:TRAC1:MODE BLANK
+    DISP:TRAC2:MODE MAXH
+    DISP:TRAC3:MODE MINH
+    INIT:CONT OFF
+    INST:SEL 'Spectrum';*WAI
+    SENSe:SWEep:MODE ESPectrum
+    SENSe:ESPectrum:PRESet:STANdard 'WCDMA\3GPP\DL\3GPP_DL.xml'
+    SENS:SWEEP:COUNT 5
+
+Copy the lines into your clipboard, right-click in your script, and select the item **Paste Special as SCPI**:
+
+.. image:: images/RsIcAutoComp-paste_as_scpi_calls.drawio.png
+
+Select between the call type with/without OPC and select the target instrument type (or select a custom name).
+This generates the following python script:
+
+.. code-block:: python
+
+    fsw.write("*RST")
+    fsw.write("INSTrument:CREate:NEW IQ,'IQ 1'")
+    fsw.write("SENS:SWEEP:COUNT 6")
+    fsw.write("DISP:TRAC1:MODE BLANK")
+    fsw.write("DISP:TRAC2:MODE MAXH")
+    fsw.write("DISP:TRAC3:MODE MINH")
+    fsw.write("INIT:CONT OFF")
+    fsw.write("INST:SEL 'Spectrum';*WAI")
+    fsw.write("SENSe:SWEep:MODE ESPectrum")
+    fsw.write("SENSe:ESPectrum:PRESet:STANdard 'WCDMA\3GPP\DL\3GPP_DL.xml'")
+    fsw.write("SENS:SWEEP:COUNT 5")
+
+11.4 Search in the script
 """""""""""""""""""""""""
 
 Another option is to use right-click context menu. Right-click when your caret is placed between quotes in a method with first string parameter:
