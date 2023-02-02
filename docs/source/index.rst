@@ -1,7 +1,7 @@
 Welcome to RsIC documentation
 ===============================
 
-.. image:: images/pycharm_rsic_teaser.png
+.. image:: images/pycharm_rsic_teaser_1.3.0.png
 
 .. toctree::
    :maxdepth: 2

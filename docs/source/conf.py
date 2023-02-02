@@ -15,7 +15,7 @@ documentation root, use os.path.abspath to make it absolute, like shown here.
 
 project = 'Rohde & Schwarz Instrument Control Plugin for Pycharm'
 # noinspection PyShadowingBuiltins
-copyright = '© Rohde & Schwarz 2022'
+copyright = '© Rohde & Schwarz 2023'
 author = 'Rohde & Schwarz'
 master_doc = 'index'
 
@@ -48,7 +48,7 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
+# The theme to use for HTML and HTML Help pages. See the documentation for
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
