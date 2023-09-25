@@ -2,8 +2,25 @@ Rohde & Schwarz Instrument Control Pycharm plugin (RsIC) is targeted for our cus
 It is optimized, although not exclusive to be used with our `RsInstrument Python package <https://pypi.org/search/?q=rsinstrument>`_
 
 User Manual: https://rsicpycharmplugin.readthedocs.io
+See the SCPI Recorder feature in action: <https://youtu.be/pURxIsOwRBI>`_
 
 Version history
+
+Version 2.0.0 - 21.09.2023
+
+	- Removed compatibility with Pycharm 2022.x.
+	- Full integration of SCPI Language, including new SCPI Editor with customizable color schemes.
+	- SCPI Multi-liners are now native SCPI Editors with the capability of controlling multiple instruments.
+	- Template for SCPI files: Use the ProjectTree -> Project right-click -> New -> SCPI File.
+	- Added advanced SCPI parser - very useful for IO Traces.
+	- Fixed Communicator Write/Query functions.
+	- Fixed Communicator waiting Timeout.
+	- All VISA sessions are closed on Pycharm exit.
+	- Under the hood: updated org.jetbrains.intellij to 1.15.0, RsInstrument to 1.4.4
+
+Version 1.3.1 - 11.04.2023
+
+	- Added compatibility with Pycharm 2023.1+
 
 Version 1.3.0 - 01.02.2023
 
@@ -14,9 +31,9 @@ Version 1.3.0 - 01.02.2023
 	- Added multi-line window for plain SCPI commands editing and execution.
 	- Multi-line window has a powerful SCPI parser from different text and log formats.
 	- Reworked and unified SCPI Drag & Drop actions.
-	- SCPI Tree - FSW now has an option to change drives.
-	- Connect Button - added menu item 'Set Error Checking ON/OFF'.
-	- Under the hood - updated org.jetbrains.intellij to 1.12.0
+	- SCPI Tree: FSW now has an option to change drives.
+	- Connect Button: added menu item 'Set Error Checking ON/OFF'.
+	- Under the hood: updated org.jetbrains.intellij to 1.12.0
 
 
 Version 1.2.0 - 21.12.2022
@@ -28,7 +45,7 @@ Version 1.2.0 - 21.12.2022
 	- Added option to import settings XML file from the previous Pycharm Version.
 	- Fixed text wrapping in the SCPI Communicator for ASCII and BINary responses.
 	- Fixed SMA100B File Browser.
-	- Under the hood - updated org.jetbrains.intellij to 1.10.1, RsInstrument to 1.4.1
+	- Under the hood: updated org.jetbrains.intellij to 1.10.1, RsInstrument to 1.4.1
 
 
 Version 1.1.1 - 19.10.2022

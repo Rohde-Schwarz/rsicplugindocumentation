@@ -14,8 +14,10 @@ Welcome to the RsIC Getting Started
 .. include:: Chapter_09_FunctionPanel_FileBrowser.rest
 .. include:: Chapter_10_FunctionPanel_Macros.rest
 .. include:: Chapter_11_FunctionPanel_ScpiRecorder.rest
-.. include:: Chapter_12_WritingPythonScript.rest
-.. include:: Chapter_13_PluginSettings.rest
+.. include:: Chapter_12_PlainScpiScripts.rest
+.. include:: Chapter_13_WritingPythonScripts.rest
+.. include:: Chapter_14_AdvancedScpiParser.rest
+.. include:: Chapter_15_PluginSettings.rest
 
 
 .. toctree::

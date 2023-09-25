@@ -1,7 +1,7 @@
 10. Function Panel - Macros
 ============================
 
-Macros Panel provides quick way to perform custom actions with your instruments, like for example, reading instrument options, custom screenshots, special preset you need to execute often, or copying certain data from the instrument repeatedly.
+Macros Panel provides quick way of performing custom actions with your instruments, for example, reading instrument options, custom screenshots, special preset you need to execute often, or copying certain data from the instrument repeatedly.
 You can define these actions as standard Python scripts, and they are performed in the Pycharm python console.
 A Macro in the context of the plugin, is a python script that contains a defined function (by default ``execute``) with the following API:
 
@@ -10,7 +10,7 @@ A Macro in the context of the plugin, is a python script that contains a defined
     execute(rsrc_name: str, opts: str, instr_name: str, instr_alias: str, mods: str, **kwargs)
 
 Such macro can be reused by multiple instrument panels which then call the ``execute`` function with their specific instrument information.
-In addition, the script gets the ``mods`` variable, that says which modification keys you used when clicking the macro button - CTRL/ALT/SHIFT. We have some ready-to-use macros (see button **3. Add Default**) to get you started.
+The script also gets the ``mods`` variable, that signals which modification keys you used when clicking the macro button - CTRL/ALT/SHIFT. We have some ready-to-use macros (see button **3. Add Default**) to get you started.
 
 Let us look at the Function Panel:
 
@@ -67,10 +67,10 @@ Right-click on the **Get All Options** button and select ``Open Macro Script`` t
             
 The function ``execute`` receives the data from the instrument panel that invoked it. After that, you can do anything you like in the function body. In our case, we open the ``io`` session to our instrument, read the options and print them to the console.
 
-Notice the ``__main__`` guard at the bottom - it helps you to debug the script, so you can run it as is. The parameters supplied are of the function panel from which you opened it, in our example an SMW200A instrument. The cool feature is, if you open the same macro script from another panel, for example an FSW, this part is updated to correspond the FSW settings. This way, if you debug the macro, you always have the correct parameters.
+Notice the ``__main__`` guard at the bottom: it helps you to debug the script - you can run it as is. The parameters supplied are of the function panel from which you opened it, in our example an SMW200A instrument. The cool feature is, if you open the same macro script from another panel, for example an FSW, this part is updated to correspond the FSW settings. This way, if you debug the macro, you always have the correct instrument parameters.
 
 .. hint::
-    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <13.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of you project. You can safely select the first or the second option:
+    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <15.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of you project. You can safely select the first or the second option:
 
     .. image:: images/pycharm_macros_edit_warning.png
 
@@ -101,3 +101,19 @@ to (remember to keep the same indent...):
     # --------------------------------------------
 
 Uncomment the other lines, if you want to enter custom keyword arguments, or recognize CTRL / ALT / SHIFT modification when pressing the macro button. You can also use the prepared function ``_get_popup_parameter()`` to show a popup to the user to enter a string parameter.
+
+After you have modified the macro, it is time to start it. Press the newly added macro button. By the first start, you might need to start a new Python Console:
+
+.. image:: images/FunctionPanel_Macros-start_my_macro.drawio.png
+
+Your script is executed in the python console tool window:
+
+.. code-block:: console
+
+	   ...# ---------------------------------------- Starting new macro - instrument SMW200A ----------------------------------------
+	   ...if 'my_first_macro' not in dir(): import my_first_macro
+	   ...importlib.reload(my_first_macro2)
+	   ...my_first_macro.execute(rsrc_name='TCPIP::10.99.2.10::hislip0', opts='', instr_name='SMW200A', instr_alias='smw', mods='')
+	   ...:
+	Instrument identification: Rohde&Schwarz,SMW200A,1412.0000K02/0,5.10.035.29
+	Hello, I have entered my custom code here...

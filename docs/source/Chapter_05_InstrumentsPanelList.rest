@@ -1,7 +1,7 @@
 5. Instruments Panel List
 ==========================
 
-Instruments Panels List (IPL) serves as an overview of all your instrument, and as a launchpad for a dedicated Instrument Tool Windows for each instrument:
+Instruments Panels List (**IPL**) serves as an overview of all your instrument, and as a launchpad for dedicated Instrument Tool Windows for each instrument:
 
 Example of the IPL:
 
@@ -9,11 +9,11 @@ Example of the IPL:
 
 Description of the controls:
 
-1. **Collapse the Instrument Panel** - You can minimize the Instrument Panel to a small icon and the name.
+1. **Collapse the Instrument Panel** - you can minimize the Instrument Panel to a small icon and the name.
 2. **Open Instrument Tool Window** - opens dedicated Instrument Tool Window (ITW) with all the functions for the instrument. See the :ref:`6. Instrument Tool Window`.
 3. **Test the Connection** - tests, whether the connection to your instrument can be established. The connection is closed afterwards.
-4. **Configure the Instrument** - Opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
-5. **Remote Display Access** - Quickly opens Remote Operation either with VNC, Remote Desktop, or Web-control. Configure it with Context-menu item "Remote Display Settings".
+4. **Configure the Instrument** - opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
+5. **Remote Display Access** - quickly opens Remote Operation either with VNC, Remote Desktop, or Web-control. Configure it with the :any:`context-menu item <ipl_context_menu>` `Remote Display Settings`.
 6. **Remove the Instrument** - removes the instrument from the list.
 
 .. tip::
@@ -28,7 +28,7 @@ Description of the controls:
 
     |
 
-    .. image:: images/RsIcSettings-instrument_panels.drawio.png
+    .. image:: images/RsIc-instrument_panel_list_settings.drawio.png
 
     |
 
@@ -36,11 +36,14 @@ Description of the controls:
 
     .. image:: images/RsIc-instrument_panel_list_compact.drawio.png
 
+
+.. _ipl_context_menu:
+
 .. tip::
-    You can reach all the functionalities (and some more) through the context menu - right-click on the instrument picture. Now, select the **Open in Extra Window** or press 'Q'
+    You can reach all the functionalities (and some more) through the context menu: right-click on the instrument picture. Select the **Open in Extra Window** or press 'Q'
 
     .. image:: images/RsIc-instrument_panel_context_menu_open_itw.drawio.png
 
     |
 
-    **Open in Extra Window** is only available if you have made at least one successful connection to your instrument, because the plugin needs to know the instrument's identity.
+    **Open in Extra Window** is only available if you have made at least one successful connection to your instrument. This is because the plugin needs to know the instrument's identity.

@@ -13,6 +13,7 @@ It is optimized, although not exclusive to be used with our `RsInstrument Python
 
     - Instruments management - you have list of your instruments with all their important information in one place.
     - Interactive SCPI communicator GUI for each instrument.
+    - Plain SCPI commands editor, similar to R&S Forum, but with SCPI Syntax checks, code completion, and more interactive commands execution.
     - SCPI Tree - you can read out all the SCPI commands supported by your instrument.
     - SCPI Recorder - control you instrument locally, and get the SCPI commands immediately into your script.
     - SCPI commands auto-completion - the plugin helps you to write your SCPI commands faster and error-free.
