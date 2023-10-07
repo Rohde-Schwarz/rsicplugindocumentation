@@ -1,10 +1,3 @@
-Rohde & Schwarz Instrument Control Pycharm plugin (RsIC) is targeted for our customers that use Pycharm for writing python instrument remote-control scripts.
-It is optimized, although not exclusive to be used with our `RsInstrument Python package <https://pypi.org/search/?q=rsinstrument>`_
-
-User Manual: https://rsicpycharmplugin.readthedocs.io
-See the SCPI Recorder feature in action: <https://youtu.be/pURxIsOwRBI>`_
-
-Version history
 
 Version 2.0.0 - 21.09.2023
 
