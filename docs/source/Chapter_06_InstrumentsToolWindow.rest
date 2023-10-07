@@ -88,7 +88,7 @@ You can mark any command of the instrument as favorite to have a quick access to
 Multi-line SCPI Editor
 """""""""""""""""""""""""""""
 
-Since Version 1.4.0, the Multi-line SCPI Editor is a standard Pycharm Text editor, but with a special top panel for execution and parse controls. It overcomes the limitation of a single-line SCPI Command field.
+Since Version 2.0.0, the Multi-line SCPI Editor is a standard Pycharm Text editor, but with a special top panel for execution and parse controls. It overcomes the limitation of a single-line SCPI Command field.
 The SCPI Editor is in detailed described in :any:`plain_scpi_scripts`.
 
 Open the Multi-Line SCPI Editor:

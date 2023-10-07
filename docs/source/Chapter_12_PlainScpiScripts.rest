@@ -6,7 +6,7 @@
 Before you continue with this chapter, :any:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`. 
 That allows you to use SCPI auto-completion and SCPI search in your SCPI script.
 	
-Since version 1.4.0, the RsIC has the option to create SCPI script files. A SCPI script file is a file with the extension ``.scpi``
+Since version 2.0.0, the RsIC has the option to create SCPI script files. A SCPI script file is a file with the extension ``.scpi``
 The content of the file are lines with plain SCPI commands, plus some extra features:
     
 	- full-line comments - lines starting with '//' or '#' or '!'.

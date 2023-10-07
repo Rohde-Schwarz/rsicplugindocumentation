@@ -57,7 +57,7 @@ In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin 
 
 .. image:: images/RsIc-menu_install_from_file.drawio.png
 
-Select the plugin **zip** file, e.g.: ``RsConnectivityPycharmPlugin-1.4.0.zip``
+Select the plugin **zip** file, e.g.: ``RsConnectivityPycharmPlugin-2.0.0.zip``
 
 After that, you have to restart the Pycharm IDE.
 
