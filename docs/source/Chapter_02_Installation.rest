@@ -62,6 +62,12 @@ Select the plugin **zip** file, e.g.: ``RsConnectivityPycharmPlugin-2.0.0.zip``
 After that, you have to restart the Pycharm IDE.
 
 .. warning::
-    
+
     **Do not unpack the .ZIP file!!!** Select the **.ZIP** file for the installation.
     Although Pycharm allows you to select the included **.JAR** files, the plugin will not work properly.
+
+.. hint::
+
+    On **macOS**, try to avoid the offline installation.
+    The reason is: Safari with its default settings ``Open safe files after downloading`` extracts the zip file and deletes it,
+    which complicates the installation process - you have to pack the files again to a zip file or change the default Safari settings.

@@ -31,6 +31,8 @@ Enter the IP Address or the computer name and hit the **Test** button. We are lu
 
     .. image:: images/RsIc-instrument_search_usbtmc.drawio.png
 
+.. _instr_config_advanced_options:
+
 **Advanced Options** button allows you select additional settings for your session, like VISA selection (we hope you use R&S VISA :-), VISA Timeout, Logging mode, etc... :
 
 .. image:: images/RsIc-additional_session_settings.drawio.png
