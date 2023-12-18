@@ -51,6 +51,8 @@ Type the search text, for example 'rohde', and hit install.
 
 After that, you have to restart the Pycharm IDE.
 
+.. _installation_local_file:
+
 **Installation from a local file:**
 
 In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:

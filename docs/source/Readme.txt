@@ -1,4 +1,12 @@
 
+Version 2.1.0 - 23.10.2023
+
+	- Corrected toggle and action buttons in New UI.
+	- Updated Pulse Sequencer SCPI Tree.
+	- Added SCPI code-completion for commands with simple array parameters.
+	- Improved error message when no VISA is installed.
+	- Added history function for Instrument List filter box.
+
 Version 2.0.0 - 21.09.2023
 
 	- Removed compatibility with Pycharm 2022.x.
