@@ -1,3 +1,6 @@
+Version 2.1.1 - 18.12.2023
+
+	- Fixed compatibility with Pycharm 2023.3.x
 
 Version 2.1.0 - 23.10.2023
 
