@@ -1,3 +1,13 @@
+Version 3.0.0 - 02.02.2024
+	- Removed support for Pycharm older than 2023.3.
+	- Partial support for New UI.
+	- New Instruments List Toolbar for Actions and Filter.
+	- GUI toolbars changed to standard Intellij Action Toolbars.
+	- Fixed Instrument Tool Window Tabs where clicking directly on the icon did not work.
+	- Fixed many instances of non EDT-invoke exceptions due to the changes in the Intellij framework.
+	- Advanced SCPI Parser - improved performance and removed the reparse/auto-parse buttons. Added SMx Web Log Format recognition.
+	- Under the hood: updated org.jetbrains.intellij to 1.17.2, RsInstrument to 1.5.0.
+
 Version 2.1.1 - 18.12.2023
 
 	- Fixed compatibility with Pycharm 2023.3.x

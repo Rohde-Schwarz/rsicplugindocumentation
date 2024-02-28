@@ -21,9 +21,47 @@ The content of the file are lines with plain SCPI commands, plus some extra feat
 	See :any:`Writing Python Scripts per Drag & Drop <writing_python_scripts_drag_drop_from_scpi>`
 
 
-The easiest way to start with the \*.scpi files is to use the prepared template. Go to your Project tab, right-click on the project name, and select **New -> SCPI File**:
+The easiest way to start with the multiline \*.scpi files is to open them from the ITW (Instrument Tool Window):
 
-	.. image:: images/RsIcScpiScripts-create_new_scpi_script.drawio.png
+.. image:: images/RsIcITW-multi_line_open.drawio.png
+
+Multi-line SCPI Editor GUI:
+
+.. image:: images/RsIcITW-multi_line_scpi_cmds.drawio.png
+
+This SCPI editor is bound to the instrument's ITW. This means, the default instrument (see further for how you can control multiple instruments from one scpi script) is always the ITW's instrument, in our case the SMW200A. The file ``SMW200A_MLEditor.scpi`` is not saved separately in your local file system, but directly in the plugin data for the instrument. If you export/import plugin settings, the content of this file persists. You can have 3 different SCPI sequences (banks) under one instrument.
+Let us create a small 3-lines script and execute it:
+
+.. code-block:: console
+
+    *RST
+    *OPC?
+    *IDN?
+
+
+.. image:: images/RsIcScpiScripts-ml_run_whole_script.drawio.png
+
+Execute the script. Remember, you need the instrument to be present and connected. You can see the execution results and reponses for queries in a form of inlay text:
+
+.. image:: images/RsIcScpiScripts-ml_run_whole_script_result.drawio.png
+
+The big advantage compared to the single line communicator in the ITW is, you can execute either the entire script, or just a part of it, or just one line. Clear the inlays, go with the caret to the line 3, and press F4 (Execute line):
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_actual_line.drawio.png
+
+Only the **\*IDN?** was executed. Now select the first two lines and press the single green arrow:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_selection.drawio.png
+
+You see only the first two lines were executed:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_selection_result.drawio.png
+
+Right-click gives you even more options, for example Run-to, Run-from... See the descriptions for all the editor controls in the chapters below.
+
+Mulitline editor from the ITW is not the only type of the SCPI file. You can create your own generic SCPI file not bound to any specific instrument: Go to your Project tab, right-click on the project name, and select **New -> SCPI File**:
+
+.. image:: images/RsIcScpiScripts-create_new_scpi_script.drawio.png
 	
 Type the name of your script without an extension and press ENTER. Pycharm creates a SCPI script with basic structure. Notice, that the comment with ``default_instrument`` has a special meaning: it defines the default target instrument (instrument, to which all the SCPI commands in the script are sent). The template sets this value to the name of your file:
 
@@ -189,6 +227,6 @@ However, the execution and parsing are not available. For that, you have to drag
 12.8.2 Multiline SCPI Editor
 -----------------------------
 
-:any:`Multiline SCPI Editor <itw_multi_line_scpi_editor>` is related to the instrument's ITW. Its content is not saved in a **\*.scpi** file. Instead, you have three **Command banks** that you can switch between and use them practically as three different files. The entire content is persistent and is stored in the plugin XML file:
+We already mentioned :any:`Multiline SCPI Editor <itw_multi_line_scpi_editor>` at the beginning: The content is always related to the instrument's ITW. Its content is not saved in a **\*.scpi** file. Instead, you have three **Command banks** that you can switch between and use them practically as three different files. The entire content is persistent and is stored in the plugin XML file:
 
 .. image:: images/RsIcScpiScripts-multiliner_scpi_editor.drawio.png
