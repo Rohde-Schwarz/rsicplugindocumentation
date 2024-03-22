@@ -13,9 +13,9 @@ documentation root, use os.path.abspath to make it absolute, like shown here.
 
 # -- Project information -----------------------------------------------------
 
-project = 'Rohde & Schwarz Instrument Control Plugin for Pycharm'
+project = 'Rohde & Schwarz Instrument Control Pycharm Plugin'
 # noinspection PyShadowingBuiltins
-copyright = '© Rohde & Schwarz 2023'
+copyright = '© Rohde & Schwarz 2024'
 author = 'Rohde & Schwarz'
 master_doc = 'index'
 
