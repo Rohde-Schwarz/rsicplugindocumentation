@@ -1,4 +1,4 @@
-15. Plugin Settings
+16. Plugin Settings
 =========================
 
 Here, you can find all the general settings (non-instrument specific) for the plugin.
@@ -8,7 +8,7 @@ You can invoke it from:
 	- the Pycharm menu *File -> Rohde & Schwarz IC Settings*
 	- any :any:`SCPI Editor <plain_scpi_controls_overview>` button 11
 
-15.1 General settings
+16.1 General settings
 """""""""""""""""""""""""""""""""""""""
 
 General settings for the plugin, plus import/export features for the stored data.
@@ -34,7 +34,7 @@ Description of the controls:
 - **Temporary Folder for Instrument Files** - when you operate the File Browser, all the files copied from the instrument are stored in this path. We recommend to check the occupied size and clear this folder from time to time.
 - **Folder with Macro Script Files** - in this folder, all the macro scripts are stored. Change it to your liking.
 
-15.2 Instrument Panels
+16.2 Instrument Panels
 """""""""""""""""""""""
 
 Settings related to the *look-and-feel* of the Instrument Panel List (IPL).
@@ -52,7 +52,7 @@ Other checkbox fields names correspond to the Instrument Panel elements. The cha
 
 .. _settings_instrument_tool_windows:
 
-15.3 Instrument Tool Windows
+16.3 Instrument Tool Windows
 """""""""""""""""""""""""""""
 
 Common settings for all the ITWs, that is, non instrument-specific.
@@ -82,7 +82,7 @@ Description of the controls:
 
 .. _settings-scpi-code-completion:
 
-15.4 SCPI Code Completion
+16.4 SCPI Code Completion
 """"""""""""""""""""""""""
 
 Settings related to SCPI auto-completion.
@@ -105,7 +105,7 @@ Description of the controls:
 - **Threshold for Full Commands List** - as you are completing a SCPI command, the amount of the possible suggestions decreases. When it falls below this threshold, the suggestions will contain not only the next header, but the full command up to the end.
 - **Default Instrument for SCPI Tree** - there are cases, where you are might use script variables that do not fit any of your instrument's aliases. Such case is for example a common sub-routine serving more than one instrument. If you still want the SCPI code completion to work, you have to tell the RsIC which SCPI Tree to use. You can do it here by defining a default instrument.
 
-15.5 Code Inspections
+16.5 Code Inspections
 """"""""""""""""""""""
 
 Settings affecting python code inspections and annotations. Currently only one feature is supported.
@@ -118,7 +118,7 @@ Description of the controls:
 
 .. _settings-templates:
 
-15.6 Templates
+16.6 Templates
 """"""""""""""""""""""
 
 Here, you can customize all the paste snippets. For easier switching between different templates, you have 3 banks (presets) at your disposal.
@@ -130,7 +130,7 @@ The one selected and visible is the active one. The Templates are split into 4 g
 
 .. image:: images/RsIcSettings-templates.drawio.png
 
-15.7 Remote Display
+16.7 Remote Display
 """"""""""""""""""""""
 
 Default Remote Display settings for VNC and RDP (Remote Desktop). You can customize them per-instrument basis.
@@ -144,7 +144,7 @@ Remote Display control uses external applications that are launched through comm
 
 .. _settings-scpi_editors:
 
-15.8 SCPI Editors
+16.8 SCPI Editors
 """"""""""""""""""""""
 
 Settings related to SCPI Editors that handle `\*.scpi` files.
@@ -164,8 +164,25 @@ Description of the controls:
 - **Update SCPI search text on caret line change** - if the Search Window is active (shortcut F3), its search text follows the current editor caret position.
 - **Update SCPI search text while typing** - if the Search Window is active (shortcut F3), its search text is updated as you type.
 
+.. _settings-curves:
 
-15.9 Advanced
+16.9 Curves
+""""""""""""""""""""""
+
+Common settings for the Curves Tool Windows:
+
+.. image:: images/RsIcSettings-curves.drawio.png
+
+Description of the controls:
+
+- **Chart constant width / height** - If you've selected 'Keep the chart size constant' in your Curves Tool Window, the chart keeps the dimensions defined here.
+- **Chart background color** - by default it is white, even for Darcula Theme. Change it to your liking.
+- **Chart A/B color + Style** - you can adjust the color and points style of curves A/B.
+- **CSV columns/lines separator** - relevant, if you work with CSV export feature, by default the columns are separated by comma, and lines by Linefeed.
+- **CSV X/Y-Data format** - relevant for CSV-data export. The formatting is ``Java DecimalFormat``. A good explanation of the DecimalFormat can be found for example here: <https://jenkov.com/tutorials/java-internationalization/decimalformat.html>`_. 
+
+
+16.10 Advanced
 """"""""""""""""""""""
 
 Danger Zone!!! Tweaking the functionalities and patching feature definition files.

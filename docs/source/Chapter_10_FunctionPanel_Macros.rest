@@ -70,7 +70,7 @@ The function ``execute`` receives the data from the instrument panel that invoke
 Notice the ``__main__`` guard at the bottom: it helps you to debug the script - you can run it as is. The parameters supplied are of the function panel from which you opened it, in our example an SMW200A instrument. The cool feature is, if you open the same macro script from another panel, for example an FSW, this part is updated to correspond the FSW settings. This way, if you debug the macro, you always have the correct instrument parameters.
 
 .. hint::
-    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <15.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of you project. You can safely select the first or the second option:
+    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <16.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of you project. You can safely select the first or the second option:
 
     .. image:: images/pycharm_macros_edit_warning.png
 

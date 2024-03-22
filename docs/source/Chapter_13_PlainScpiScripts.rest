@@ -1,6 +1,6 @@
 .. _plain_scpi_scripts:
 
-12. Plain SCPI Scripts Editor
+13. Plain SCPI Scripts Editor
 ==============================
 
 Before you continue with this chapter, :any:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`. 
@@ -105,7 +105,7 @@ Description of the controls:
 .. note::
     By splitting/moving editors, you can have a situation where one SCPI file is opened in multiple editors. In such case, the executing controls are only available in one of them.
 
-12.1 Writing scripts - SCPI Communicator drag function
+13.1 Writing scripts - SCPI Communicator drag function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
@@ -114,7 +114,7 @@ Once again, the important controls of the SCPI Communicator for the purpose of t
 
 Enter the ``*IDN?`` to the SCPI Command Field, and use the **SCPI Command Drag Button** to drag the command to the desired place in your script.
 
-12.2 Writing scripts - SCPI Auto-completion
+13.2 Writing scripts - SCPI Auto-completion
 """"""""""""""""""""""""""""""""""""""""""""
 
 In the SCPI Editor, Press **CTRL+Space** to invoke the auto-complete suggestions:
@@ -125,7 +125,7 @@ Select your desired command header and use **TAB** to insert it. Pycharm shows y
 
 .. _writing_python_scripts_parsing_from_other_formats:
 
-12.3 Writing scripts - Parsing from other formats
+13.3 Writing scripts - Parsing from other formats
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 RsIC has a powerful parser that can take almost any text format and extract plain SCPI commands out of it. You can use two sources for that - clipboard or file.
@@ -164,7 +164,7 @@ For IO Traces, it is useful to have an option to filter out only commands for on
 	
 .. image:: images/RsIcScpiScripts-parse_advanced.drawio.png
 
-12.4 Writing scripts - Searching for commands
+13.4 Writing scripts - Searching for commands
 """"""""""""""""""""""""""""""""""""""""""""""
 
 Another option to add commands, is to search for them in the SCPI Tree. You can use the :any:`SCPI Tree Function Panel <function_panel_scpi_tree>`, or search directly in the script. Right-click (or press F3) on a command or an empty line, and select **Search for Command**:
@@ -178,7 +178,7 @@ The already written command is pre-filled to the search box, and you can adjust 
 .. tip::
 	The Search Window is persistent, and is by default updated everytime you change line in your SCPI Editor, or you type text. Because of the fact that the space character is used as a separator between the commands and parameters, the search text ignores the characters after the space. To overcome this, use double-spaces. For example, ``freq  center  cw`` is then converted to the search string ``freq center cw``.
 
-12.5 Executing scripts
+13.5 Executing scripts
 """""""""""""""""""""""
 
 To execute the script, all the involved instruments must have the Instrument Tool Windows active, and their connections established.
@@ -192,7 +192,7 @@ You can adjust the inlay properties in the :any:`Settings for the SCPI Editors (
 .. hint::
     Clear the inlays with Button 8 - **Clear all inlays** or just a portion of them by selecting the desired lines and right-click context menu **Clear Inlays**.
 	
-12.6 Checking the commands
+13.6 Checking the commands
 """""""""""""""""""""""""""
 
 A very useful feature is to check the commands in the script, whether they are defined in the instrument's SCPI Tree. This provides a quick plausibility check. Press the **Check in SCPI Tree** button:
@@ -201,7 +201,7 @@ A very useful feature is to check the commands in the script, whether they are d
 
 Green inlays signal how many matches in the SCPI were found. Red inlays mark the commands not present. Do this quick check to prevent unnecessary VISA timeout errors when executing the script with unknown commands.
 
-12.7 SCPI Editor color scheme
+13.7 SCPI Editor color scheme
 """"""""""""""""""""""""""""""
 
 You might have noticed that the SCPI Editor text has several different colors. The cool thing is, you can fully customize it. Go to **Pycharm settings -> Editor -> Color Scheme -> SCPI**, and let's adjust the command headers to be bold green, the header suffixes bold violet, parameters italic, and the header separators to have gray background - just for fun :-)
@@ -210,12 +210,12 @@ You might have noticed that the SCPI Editor text has several different colors. T
 
 .. _plain_scpi_editor_flavors:
 
-12.8 SCPI Editor Flavors
+13.8 SCPI Editor Flavors
 """""""""""""""""""""""""
 
 The SCPI Editor component is used in multiple different flavors. They all have the auto-completion, but differ in execution and parsing features.
 
-12.8.1 SCPI Recorder Function Panel
+13.8.1 SCPI Recorder Function Panel
 ------------------------------------
 
 :any:`SCPI Recorder Function Panel <function_panel_scpi_recorder>` does not have the control panel, but most of the functionalities are available per right-click context menu:
@@ -224,7 +224,7 @@ The SCPI Editor component is used in multiple different flavors. They all have t
 
 However, the execution and parsing are not available. For that, you have to drag or copy the content to a SCPI file.
 
-12.8.2 Multiline SCPI Editor
+13.8.2 Multiline SCPI Editor
 -----------------------------
 
 We already mentioned :any:`Multiline SCPI Editor <itw_multi_line_scpi_editor>` at the beginning: The content is always related to the instrument's ITW. Its content is not saved in a **\*.scpi** file. Instead, you have three **Command banks** that you can switch between and use them practically as three different files. The entire content is persistent and is stored in the plugin XML file:

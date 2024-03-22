@@ -1,6 +1,6 @@
 .. _writing_python_scripts:
 
-13. Writing Python Scripts
+14. Writing Python Scripts
 ==========================
 
 Before you continue with this chapter, :any:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`. 
@@ -30,7 +30,7 @@ You can choose the path where to store the script. By default, it is stored in y
 The created script is already runnable, and the cursor is on the correct position to add SCPI calls. We now go through ways how to do that:
 
 
-13.1 Writing scripts - SCPI Communicator drag function
+14.1 Writing scripts - SCPI Communicator drag function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
@@ -67,7 +67,7 @@ You script will look similar to this:
     .. image:: images/RsIcAutoComp-snippets_format.drawio.png
 
 
-13.2 Writing scripts - Auto-completion
+14.2 Writing scripts - Auto-completion
 """""""""""""""""""""""""""""""""""""""
 
 SCPI auto-completion works with python call expressions, where the origin object name is your instrument alias, and the method contains an argument of string-type. Type (do not copy/paste) for example this:
@@ -80,7 +80,7 @@ Select your desired command and use **TAB** to insert it. Pycharm immediately sh
     You can force the auto-completion window to pop up with the keyboard combo **CTRL+SPACE**
 
 
-13.3 Writing scripts - Searching for commands
+14.3 Writing scripts - Searching for commands
 """"""""""""""""""""""""""""""""""""""""""""""
 
 Similar to **\*.scpi** files, you can add commands by searching for them. The right-click context menu is caret-position-sensitive, it shows the option **Search for command** only if you place the caret within a SCPI string:
@@ -93,7 +93,7 @@ The already written command is pre-filled to the search box, and you can change 
 .. image:: images/RsIcAutoComp-script_context_menu_search_popup.drawio.png
 
 
-13.4 Writing scripts - Parsing from other formats
+14.4 Writing scripts - Parsing from other formats
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 The :any:`SCPI parser <advanced_scpi_parser>` is available in the right-click context menu. Let us take the following R&S SMW example written as MATLAB script. Copy it to your Clipboard:
@@ -145,7 +145,7 @@ Now click **Add and Close**, select the default target instrument and your comma
 
 .. _writing_python_scripts_drag_drop_from_scpi:
 
-13.5 Writing scripts - Drag & Drop from SCPI files
+14.5 Writing scripts - Drag & Drop from SCPI files
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 Here we combine two great features - one of Pycharm and one of RsIC plugin: We arrange our SCPI Editor and our Python Editor side-by-side. 

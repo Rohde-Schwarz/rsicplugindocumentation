@@ -1,3 +1,16 @@
+Version 3.1.0 - 31.03.2024
+	- Added Curves Function panel to conveniently querying traces, waveforms and other array data.
+	- Added pre-defined curves to 3 different instrument groups: SignalAnalyzer, VectorSignalAnalyzer, Oscilloscope.
+	- Added support for M3SR radios - new Instrument Profile 'XK41'.
+	
+	- Fixed NI VISA Parser where it ignored certain write commands.
+	- Fixed bug with Instrument List when you opened second project.
+	- Fixed ZNL SCPI Tree Groups.
+	- Fixed multiple Event Dispatch Thread exceptions.
+	- Fixed proper sorting of SCPI Groups with different priorities.
+
+	- Under the hood: updated JRsInstrument to 1.6.0.
+
 Version 3.0.0 - 02.02.2024
 	- Removed support for Pycharm older than 2023.3.
 	- Partial support for New UI.
@@ -6,7 +19,7 @@ Version 3.0.0 - 02.02.2024
 	- Fixed Instrument Tool Window Tabs where clicking directly on the icon did not work.
 	- Fixed many instances of non EDT-invoke exceptions due to the changes in the Intellij framework.
 	- Advanced SCPI Parser - improved performance and removed the reparse/auto-parse buttons. Added SMx Web Log Format recognition.
-	- Under the hood: updated org.jetbrains.intellij to 1.17.2, RsInstrument to 1.5.0.
+	- Under the hood: updated org.jetbrains.intellij to 1.17.2, JRsInstrument to 1.5.0.
 
 Version 2.1.1 - 18.12.2023
 

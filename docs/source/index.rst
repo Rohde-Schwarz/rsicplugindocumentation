@@ -22,10 +22,11 @@ See the SCPI Recorder feature in action:
 .. include:: Chapter_09_FunctionPanel_FileBrowser.rest
 .. include:: Chapter_10_FunctionPanel_Macros.rest
 .. include:: Chapter_11_FunctionPanel_ScpiRecorder.rest
-.. include:: Chapter_12_PlainScpiScripts.rest
-.. include:: Chapter_13_WritingPythonScripts.rest
-.. include:: Chapter_14_AdvancedScpiParser.rest
-.. include:: Chapter_15_PluginSettings.rest
+.. include:: Chapter_12_FunctionPanel_Curves.rest
+.. include:: Chapter_13_PlainScpiScripts.rest
+.. include:: Chapter_14_WritingPythonScripts.rest
+.. include:: Chapter_15_AdvancedScpiParser.rest
+.. include:: Chapter_16_PluginSettings.rest
 
 
 Indices and tables

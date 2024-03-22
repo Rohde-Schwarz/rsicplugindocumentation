@@ -1,6 +1,6 @@
 .. _advanced_scpi_parser:
 
-14. Advanced SCPI Parser
+15. Advanced SCPI Parser
 =========================
 
 This parser is accessible from any SCPI Editor or a context-menu of a python script. It gives you the possibility to parse a Clipboard text or a file content and extract SCPI commands out of it. We support typical formats, like for example, R&S IO Trace, NI IO Trace, MATLAB, IECWin, R&S Forum, another Python script...
