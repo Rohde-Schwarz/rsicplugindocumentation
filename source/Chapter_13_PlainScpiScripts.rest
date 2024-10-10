@@ -1,0 +1,232 @@
+.. _plain_scpi_scripts:
+
+13. Plain SCPI Scripts Editor
+==============================
+
+Before you continue with this chapter, :any:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`. 
+That allows you to use SCPI auto-completion and SCPI search in your SCPI script.
+	
+Since version 2.0.0, the RsIC has the option to create SCPI script files. A SCPI script file is a file with the extension ``.scpi``
+The content of the file are lines with plain SCPI commands, plus some extra features:
+    
+	- full-line comments - lines starting with '//' or '#' or '!'.
+	- comments after SCPI commands with the same syntax as the full-line comments.
+	- definition of a default target instrument - the instrument that all the commands are sent to.
+	- explicit definition of another target instrument for a command. This way, the SCPI script can send commands to **multiple instruments**.
+
+.. hint::
+	SCPI scripts are **not transferrable** - they can be executed only in Pycharm with the RsIC installed. But they serve as a good debugging tool before you create a code in your python scripts.
+	Even if you do not plan to write any python scripts, the SCPI editor can help you debug you SCPI sequence. 
+	At the end, with the correct :any:`snippet templates <settings-templates>`, you can per drag&drop export this sequence as any programming language code.
+	See :any:`Writing Python Scripts per Drag & Drop <writing_python_scripts_drag_drop_from_scpi>`
+
+
+The easiest way to start with the multiline \*.scpi files is to open them from the ITW (Instrument Tool Window):
+
+.. image:: images/RsIcITW-multi_line_open.drawio.png
+
+Multi-line SCPI Editor GUI:
+
+.. image:: images/RsIcITW-multi_line_scpi_cmds.drawio.png
+
+This SCPI editor is bound to the instrument's ITW. This means, the default instrument (see further for how you can control multiple instruments from one scpi script) is always the ITW's instrument, in our case the SMW200A. The file ``SMW200A_MLEditor.scpi`` is not saved separately in your local file system, but directly in the plugin data for the instrument. If you export/import plugin settings, the content of this file persists. You can have 3 different SCPI sequences (banks) under one instrument.
+Let us create a small 3-lines script and execute it:
+
+.. code-block:: console
+
+    *RST
+    *OPC?
+    *IDN?
+
+
+.. image:: images/RsIcScpiScripts-ml_run_whole_script.drawio.png
+
+Execute the script. Remember, you need the instrument to be present and connected. You can see the execution results and reponses for queries in a form of inlay text:
+
+.. image:: images/RsIcScpiScripts-ml_run_whole_script_result.drawio.png
+
+The big advantage compared to the single line communicator in the ITW is, you can execute either the entire script, or just a part of it, or just one line. Clear the inlays, go with the caret to the line 3, and press F4 (Execute line):
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_actual_line.drawio.png
+
+Only the **\*IDN?** was executed. Now select the first two lines and press the single green arrow:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_selection.drawio.png
+
+You see only the first two lines were executed:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_selection_result.drawio.png
+
+Right-click gives you even more options, for example Run-to, Run-from... See the descriptions for all the editor controls in the chapters below.
+
+Mulitline editor from the ITW is not the only type of the SCPI file. You can create your own generic SCPI file not bound to any specific instrument: Go to your Project tab, right-click on the project name, and select **New -> SCPI File**:
+
+.. image:: images/RsIcScpiScripts-create_new_scpi_script.drawio.png
+	
+Type the name of your script without an extension and press ENTER. Pycharm creates a SCPI script with basic structure. Notice, that the comment with ``default_instrument`` has a special meaning: it defines the default target instrument (instrument, to which all the SCPI commands in the script are sent). The template sets this value to the name of your file:
+
+	.. image:: images/RsIcScpiScripts-scpi_script_template.drawio.png
+	
+The valid ``default_instrument`` value is either instrument name, or its alias. Hover over the text and choose the quick action **Select a valid instrument**.
+
+.. note::
+    If the comment with default instrument is missing, the RsIC tries to get the default instrument from the name of the file. The file name has to start either with the name or alias of the target instrument, all case-insensitive. Examples:
+
+		- File name ``smw_test_script.scpi`` will recognise ``smw`` if you have it defined as alias or name (case-insensitive).
+		- File name ``smw200a_test_script.scpi`` will recognise ``smw`` if you have it defined as alias or name (case-insensitive).
+		- File name ``blablabla.scpi`` will report an error when you try to execute the script. Unless, of course you have the instrument with the name ``blablabla`` :-)
+	
+Another special comment is on the **Line 11**: ``// sleep: 1000``. This causes the execution engine to pause for 1000 milliseconds. Use it when you need to enter a pause into your execution chain.
+	
+Notice the syntax of the **Line 14**: ``smw --> SOURce1:POWer:AMPLitude -37.00``. It explicitly says that this command should be sent to the instrument with the name or alias ``smw``. If the default instrument is, for example defined as ``fsw``, this allows the script to work with two different instruments. If the explicit target instrument is not recognised, you will get a quick action to correct it.
+
+.. _plain_scpi_controls_overview:
+
+Let us have a look at the controls:
+
+	.. image:: images/RsIcScpiScripts-scpi_editor_controls.drawio.png
+
+Description of the controls:
+
+1. **Execute all valid commands (F5)** - executes all the commands in the script, that are valid. Blank lines, comments and invalid commands are skipped. To execute a single line, use the shortcut **F4**
+2. **Drag Area** - drag one or more lines (selection) to another SCPI or Python script or your SCPI communicator. Based on the drop target context, the RsIC choses or offers different paste formats.
+3. **Execute selected commands** - executes all the commands in the selection.
+4. **Stop running actions** - stops all the actions.
+5. **Parse SCPI from file** - select a file to parse SCPI commands from. This feature uses advanced procedures to recognize the file format and parse the relevant SCPI commands out of it. Try it on IO Traces or different scripts, like for example Python, MATLAB, or IECWin.
+6. **Parse SCPI from Clipboard** - same as the parsing from file, but the source is a text content of the Clipboard.
+7. **Advanced Parser Window** - opens the :any:`Advanced SCPI Parser <advanced_scpi_parser>`.
+8. **Clear all inlays** - clears all the visible inlays that are displayed when executing script or checking for SCPI commands.
+9. **Check in SCPI Tree** - checks, whether the commands are present in the instrument's SCPI Tree.
+10. **Autoscroll** - if ON, the window automatically scrolls by execution or parsing.
+11. **SCPI Editor Settings** - opens the :any:`Settings for the SCPI Editors <settings-scpi_editors>`.
+12. **Run Cycles** - here you can define how many cycles should be executed. Set it to higher number then 1, if you want to repeat the selected sequence, one line, or the entire script.
+13. **Show more / less** - shows/hides additional controls.
+
+.. note::
+    By splitting/moving editors, you can have a situation where one SCPI file is opened in multiple editors. In such case, the executing controls are only available in one of them.
+
+13.1 Writing scripts - SCPI Communicator drag function
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
+
+.. image:: images/RsIcScpiScripts-comm_panel_essentials.drawio.png
+
+Enter the ``*IDN?`` to the SCPI Command Field, and use the **SCPI Command Drag Button** to drag the command to the desired place in your script.
+
+13.2 Writing scripts - SCPI Auto-completion
+""""""""""""""""""""""""""""""""""""""""""""
+
+In the SCPI Editor, Press **CTRL+Space** to invoke the auto-complete suggestions:
+
+.. image:: images/RsIcScpiScripts-auto_completion.drawio.png
+
+Select your desired command header and use **TAB** to insert it. Pycharm shows you another header(s) of the command to insert.
+
+.. _writing_python_scripts_parsing_from_other_formats:
+
+13.3 Writing scripts - Parsing from other formats
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+RsIC has a powerful parser that can take almost any text format and extract plain SCPI commands out of it. You can use two sources for that - clipboard or file.
+Let us take an existing python code for our FSW. Copy the code below into your Clipboard:
+
+.. code-block:: python
+
+    fsw.write("*RST")
+    fsw.query("*IDN?")
+    fsw.write("INSTrument:CREate:NEW IQ,'IQ 1'")
+    fsw.write("SENS:SWEEP:COUNT 6")
+    fsw.write("DISP:TRAC1:MODE BLANK")
+    fsw.write("INIT:CONT OFF")
+    fsw.write("INST:SEL 'Spectrum';*WAI")
+    fsw.write("SENSe:SWEep:MODE ESPectrum")
+    fsw.write("SENSe:ESPectrum:PRESet:STANdard 'WCDMA/3GPP/DL/3GPP_DL.xml'")
+    fsw.write("SENS:SWEEP:COUNT 5")
+
+Click the button **Parse SCPI from Clipboard**:
+
+.. image:: images/RsIcScpiScripts-parse_from_clipboard.drawio.png
+
+The following window pops up:
+
+.. image:: images/RsIcScpiScripts-parse_from_clipboard_window.drawio.png
+
+You can see the format was properly detected as a python script. In case the format auto-detection did not work, you can always change it. Press OK, and the parsed plain SCPI commands are added to your script.
+
+Often you would like to reproduce the SCPI sequence that you have in a form of an **IO Trace** file. In this case, click the button **Parse from File**:
+
+.. image:: images/RsIcScpiScripts-parse_from_file.drawio.png
+
+Select the file (try for example this one: :download:`rsvisa_log_smw.log`), and the parser does the rest. Supported IO Traces are Rohde&Schwarz IO Trace and NI Trace Log exported as \*.txt file.
+
+For IO Traces, it is useful to have an option to filter out only commands for one or more specific instruments. The :any:`Advanced SCPI Parser <advanced_scpi_parser>` does exactly that:
+	
+.. image:: images/RsIcScpiScripts-parse_advanced.drawio.png
+
+13.4 Writing scripts - Searching for commands
+""""""""""""""""""""""""""""""""""""""""""""""
+
+Another option to add commands, is to search for them in the SCPI Tree. You can use the :any:`SCPI Tree Function Panel <function_panel_scpi_tree>`, or search directly in the script. Right-click (or press F3) on a command or an empty line, and select **Search for Command**:
+
+.. image:: images/RsIcScpiScripts-search_for_command.drawio.png
+
+The already written command is pre-filled to the search box, and you can adjust it. **Double-click** on the desired command line in the table to insert it into your script:
+
+.. image:: images/RsIcScpiScripts-search_command_window.drawio.png
+
+.. tip::
+	The Search Window is persistent, and is by default updated everytime you change line in your SCPI Editor, or you type text. Because of the fact that the space character is used as a separator between the commands and parameters, the search text ignores the characters after the space. To overcome this, use double-spaces. For example, ``freq  center  cw`` is then converted to the search string ``freq center cw``.
+
+13.5 Executing scripts
+"""""""""""""""""""""""
+
+To execute the script, all the involved instruments must have the Instrument Tool Windows active, and their connections established.
+
+When you execute a script, selection, or a single line, the results of the execution are presented as inlays directly in the editor:
+
+.. image:: images/RsIcScpiScripts-scpi_script_executed.drawio.png
+
+You can adjust the inlay properties in the :any:`Settings for the SCPI Editors (button 11) <settings-scpi_editors>`.
+
+.. hint::
+    Clear the inlays with Button 8 - **Clear all inlays** or just a portion of them by selecting the desired lines and right-click context menu **Clear Inlays**.
+	
+13.6 Checking the commands
+"""""""""""""""""""""""""""
+
+A very useful feature is to check the commands in the script, whether they are defined in the instrument's SCPI Tree. This provides a quick plausibility check. Press the **Check in SCPI Tree** button:
+
+.. image:: images/RsIcScpiScripts-check_for_commands.drawio.png
+
+Green inlays signal how many matches in the SCPI were found. Red inlays mark the commands not present. Do this quick check to prevent unnecessary VISA timeout errors when executing the script with unknown commands.
+
+13.7 SCPI Editor color scheme
+""""""""""""""""""""""""""""""
+
+You might have noticed that the SCPI Editor text has several different colors. The cool thing is, you can fully customize it. Go to **Pycharm settings -> Editor -> Color Scheme -> SCPI**, and let's adjust the command headers to be bold green, the header suffixes bold violet, parameters italic, and the header separators to have gray background - just for fun :-)
+
+.. image:: images/RsIcScpiScripts-color_scheme.drawio.png
+
+.. _plain_scpi_editor_flavors:
+
+13.8 SCPI Editor Flavors
+"""""""""""""""""""""""""
+
+The SCPI Editor component is used in multiple different flavors. They all have the auto-completion, but differ in execution and parsing features.
+
+13.8.1 SCPI Recorder Function Panel
+------------------------------------
+
+:any:`SCPI Recorder Function Panel <function_panel_scpi_recorder>` does not have the control panel, but most of the functionalities are available per right-click context menu:
+
+.. image:: images/RsIcScpiScripts-scpi_recorder_editor.drawio.png
+
+However, the execution and parsing are not available. For that, you have to drag or copy the content to a SCPI file.
+
+13.8.2 Multiline SCPI Editor
+-----------------------------
+
+We already mentioned :any:`Multiline SCPI Editor <itw_multi_line_scpi_editor>` at the beginning: The content is always related to the instrument's ITW. Its content is not saved in a **\*.scpi** file. Instead, you have three **Command banks** that you can switch between and use them practically as three different files. The entire content is persistent and is stored in the plugin XML file:
+
+.. image:: images/RsIcScpiScripts-multiliner_scpi_editor.drawio.png

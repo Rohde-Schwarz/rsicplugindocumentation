@@ -1,0 +1,14 @@
+.. _main-instrument-panel:
+
+3. Main Instruments Panel
+==========================
+
+
+When you start the Pycharm IDE with the RsIC plugin installed, the IDE shows an additional Tool Window **Rohde & Schwarz Instruments**.
+Click on the Tool Window gutter to open it - see the orange arrows:
+
+.. image:: images/RsIc-main_panel.drawio.png
+
+.. hint::
+    On rare occasions, the tab *Rohde & Schwarz Instruments* is not visible.
+    In such cases, you can always open the window from the Pycharm menu *View->Tool Windows->Rohde & Schwarz Instruments*

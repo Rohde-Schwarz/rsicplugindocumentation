@@ -1,0 +1,164 @@
+.. _advanced_scpi_parser:
+
+15. Advanced SCPI Parser
+=========================
+
+This parser is accessible from any SCPI Editor or a context-menu of a python script. It gives you the possibility to parse a Clipboard text or a file content and extract SCPI commands out of it. We support typical formats, like for example, R&S IO Trace, NI IO Trace, MATLAB, IECWin, R&S Forum, another Python script...
+
+Accessing the parser from a **SCPI Editor**:
+
+.. image:: images/RsIcAdvancedParser-open_scpi_parser_from_scpi_editor.drawio.png
+
+Accessing the parser from a **python script** through right-click context menu:
+
+.. image:: images/RsIcAdvancedParser-open_scpi_parser_from_python_editor.drawio.png
+
+Let us parse a **R&S VISA Trace Log** as an example:
+
+	- Copy the content of the following log file to the Clipboard: :download:`rsvisa_log_smw.log`
+	- Open your python script ``hello_world_smw.py`` and place the caret to the place where you want to add the code.
+	- Right-click and select **Parse SCPI** as described above.
+
+The Advanced Parser window opens:
+
+.. image:: images/RsIcAdvancedParser-parser_window_rsvisa_trace.drawio.png
+
+As the window opened, it detected text content in your Clipboard and immediately parsed it for SCPI commands.
+You can always repeat the parsing with the **1. Parse Controls**:
+
+.. image:: images/RsIcAdvancedParser-parse_controls.drawio.png
+
+Description of the **Parse Controls**:
+
+A. **Parse from File** - select a file to parse its content - use this to parse for example, a VISA IO Trace Log.
+B. **Parse from Clipboard** - parses current text content of the Clipboard.
+C. **Start the parsing** - by default, smaller content is parsed automatically after any change of parse/format settings. For big files, you might want to initiate the parsing manually. This button is enabled only if the **Autoparsing Toggle** is OFF. 
+D. **Autoparsing Toggle** - starts the parsing after any change of the controls / filters. If you disable this, you can manually start the parsing.
+E. **Stop** - stops the current parsing job. The already parsed commands are retained.
+
+You can see that the **2. Input Format Controls** show the proper detected format: ``R&S VISA IO Trace``:
+
+.. image:: images/RsIcAdvancedParser-input_format_controls.drawio.png
+
+If for any reason the auto-detection fails, you can always change the format manually.
+
+.. hint::
+	The result you see when you open the Advanced Parser window, is just the initial parsing of the Clipboard text. You can copy new text to the Clipboard or open a file and perform the parsing with different content.
+
+Sometimes you want to exclude error-checking commands or commands that are repeated many times (in a row or globally). For that, you can use the **3. Filtering based on Command Type**. By default, all the commands are shown, but only two same commands in a row:
+
+.. image:: images/RsIcAdvancedParser-commands_type_filter.drawio.png
+
+The last input control is **4. Filtering based on Resource**. Using this, you can extract only commands belonging to specific resources. For example, select only the commands sent to the spectrum analyzer. That is the resource ``TCPIP::192.168.1.132::hislip0``. Let us give it a better alias name. Click on it and name it ``FSW``:
+
+.. image:: images/RsIcAdvancedParser-resource_filter.drawio.png
+
+Now rename the first resource ``TCPIP::192.168.1.117::hislip0`` to ``SMW`` and disable it by clicking on its check symbol. The result resource filter will look similar to this:
+
+.. image:: images/RsIcAdvancedParser-resource_filter_disabled.drawio.png
+
+Notice the **6. Result Text** now only show the commands for the FSW.
+
+You might ask - what for did we enter the Alias? That value has to do with the last control **5. Output Format**:
+
+.. image:: images/RsIcAdvancedParser-output_format.drawio.png
+
+By default, this value is set to ``SCPI only``. Switch it to ``SCPI with resource prefix``. You see the result text have the commands with the resource prefix. For example: ``FSW --> *RST``. This has consequences on how your commands are imported into your python or SCPI scripts:
+	
+	- **SCPI scripts** import the text verbatim. That means, what you see in the **6. Result Text** is what you get in the SCPI Editor.
+	- **Python scripts** import commands as snippets. For commands, that also have the resource assignment, the resource is used as an object name for the call. Example: ``FSW --> *RST`` is imported as:
+	
+	.. code-block:: python
+
+		FSW.write("*RST")
+		
+	For commands without resource association, the Pycharm asks you to select a default instrument:
+	
+	.. image:: images/RsIcAdvancedParser-default_instr.drawio.png
+
+.. tip::
+	For Python scripts, if you want to import the commands but use different call object name, import them as ``SCPI only`` and select your own call object.
+
+**List of all output formats**: 
+
+	- **SCPI only**: only show SCPI command. Examples:
+	
+		.. code-block:: console
+			
+			*RST
+			*CLS
+			*IDN?
+			
+		imported into python script after defining default instrument ``smw``:
+		
+		.. code-block:: python
+			
+			smw.write("*RST")
+			smw.write("*CLS")
+			resp = smw.query("*IDN?")
+			
+	- **SCPI with comment**: SCPI command and an end-line comment (if present). Example:
+	
+		.. code-block:: console
+			
+			*RST  # Reset the instrument
+			*CLS
+			*IDN?  # Query the identification string
+			
+		imported into python script after defining default instrument ``smw``:
+		
+		.. code-block:: python
+
+			smw.write("*RST")  # Reset the instrument
+			smw.write("*CLS")
+			resp = smw.query("*IDN?")  # Query the identification string
+	
+	- **SCPI with comment or resource comment**: SCPI command and a resource as a comment, or an end-line comment. Resource comment has priority. Example: 
+	
+		.. code-block:: console
+			
+			*RST  # TCPIP::192.168.1.132::hislip0
+			*CLS  # FSW
+			
+		imported into python script after defining default instrument ``smw``:
+		
+		.. code-block:: python
+			
+			smw.write("*RST")  # TCPIP::192.168.1.132::hislip0
+			smw.write("*CLS")  # FSW
+
+	- **SCPI with resource prefix**: this case we discussed above. Example:
+
+		.. code-block:: console
+			
+			FSW --> *RST
+			FSW --> *CLS
+			SMW --> *RST
+			SMW --> *IDN?
+			
+		imported into python script (no default instrument needed):
+		
+		.. code-block:: python
+			
+			FSW.write("*RST")
+			FSW.write("*CLS")
+			SMW.write("*RST")
+			resp = SMW.query("*IDN?")
+	
+	- **SCPI with resource prefix and comment**: combination of two above. Example:
+
+		.. code-block:: console
+		
+			FSW --> *RST # Reset the instrument
+			FSW --> *CLS
+			SMW --> *RST # Reset the instrument
+			SMW --> *IDN?  # Query the identification string
+			
+		imported into python script (no default instrument needed):
+		
+		.. code-block:: python
+			
+			FSW.write("*RST")  # Reset the instrument
+			FSW.write("*CLS")
+			SMW.write("*RST")  # Reset the instrument
+			resp = SMW.query("*IDN?")  # Query the identification string

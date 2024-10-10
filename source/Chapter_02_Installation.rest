@@ -1,0 +1,75 @@
+2. Installation
+================
+
+You can use the plugin on Windows, macOS, or Linux.
+
+Preconditions
+"""""""""""""""""""""""
+- Install *Pycharm 2022.2* or newer for Windows, macOS or Linux:
+
+.. image:: images/pycharm_download_button.png
+   :target: https://www.jetbrains.com/pycharm/download
+
+- Install Python Interpreter 3.7 or newer:
+
+.. image:: images/python_download_button.png
+   :target: https://www.python.org/downloads/
+
+- Install RsInstrument Python package:
+
+.. image:: images/rsinstrument_button.png
+   :target: https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#installation
+   
+- Install Rohde & Schwarz VISA (optional):
+
+.. image:: images/rs_visa_button.png
+   :target: https://www.rohde-schwarz.com/applications/r-s-visa-application-note_56280-148812.html
+   
+- Install the Pycharm RsIC Plugin:
+
+Plugin Installation
+"""""""""""""""""""""""
+
+**Installation with this button:**
+
+.. raw:: html
+
+    <p align="center"><iframe width="245px" height="48px" frameBorder="0" src="https://plugins.jetbrains.com/embeddable/install/19828"></iframe></p>
+
+**Installation from the Marketplace:**
+
+Go to the menu *File -> Settings -> Plugins* and choose the Tab *Marketplace*:
+
+.. image:: images/RsIc-menu_install_from_marketplace.drawio.png
+
+Type the search text, for example 'rohde', and hit install.
+
+.. hint::
+
+    If you do not see the plugin listed, you have a Pycharm version older than **2023.1**.
+    Update your Pycharm to the newest version, and repeat the process.
+
+After that, you have to restart the Pycharm IDE.
+
+.. _installation_local_file:
+
+**Installation from a local file:**
+
+In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:
+
+.. image:: images/RsIc-menu_install_from_file.drawio.png
+
+Select the plugin **zip** file, e.g.: ``RsConnectivityPycharmPlugin-3.1.0.zip``
+
+After that, you have to restart the Pycharm IDE.
+
+.. warning::
+
+    **Do not unpack the .ZIP file!!!** Select the **.ZIP** file for the installation.
+    Although Pycharm allows you to select the included **.JAR** files, the plugin will not work properly.
+
+.. hint::
+
+    On **macOS**, try to avoid the offline installation.
+    The reason is: Safari with its default settings ``Open safe files after downloading`` extracts the zip file and deletes it,
+    which complicates the installation process - you have to pack the files again to a zip file or change the default Safari settings.

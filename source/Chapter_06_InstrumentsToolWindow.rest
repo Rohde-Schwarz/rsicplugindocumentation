@@ -1,0 +1,102 @@
+6. Instrument Tool Window
+==========================
+
+Instrument Tool Window (**ITW**) provides all the features available for the instrument:
+
+.. image:: images/RsIcITW-instrument_tool_window.drawio.png
+
+Foldable Info Panel
+""""""""""""""""""""
+
+The **Info Panel** is a header for the Instrument Tool Window. It contains all the important information about your instrument.
+Fold it to win more vertical space:
+
+.. image:: images/RsIcITW-foldable_info_panel.drawio.png
+
+.. hint::
+    - **Right-click** on the instrument's icon to get its context-menu, same as in the overview list.
+    - **Left-click** on the on the instrument's icon to open its Configuration Window.
+
+.. _scpi-communicator:
+
+SCPI Communicator
+""""""""""""""""""
+
+SCPI Communicator contains controls for connecting and communicating with your instrument. The connection status is valid for all other functionalities in the ITW.
+
+.. image:: images/RsIcITW-comm_panel.drawio.png
+
+Description of the controls:
+
+1. **Connection Button** - toggle button for connecting and disconnecting to the instrument. When connected, multiple functions of the ITW become available. Right-click allows for sending GoToLocal or GoToRemote signal, Reset or setting VISA Timeout.
+2. **VNC Start Button** - start your VNC application with one click. You have to configure the VNC connection for your instrument to see this button.
+3. **Visit Home Page Button** - go to your instrument's home web address. Available for instruments with LAN connection and working web-server.
+4. **SCPI Logger Toggle** - opens/closes SCPI Logger Tool Window. The Logger logs entire communication with your instrument coming from the plugin, and optionally from your python script (for that, you need to `switch on logging to UDP <https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#logging>`_)
+5. **Paste import and constructor snippet** - pastes an RsInstrument import statement, plus the instrument's constructor snippet to your currently opened python script.
+6. **Commands History** - keeps list of all the commands used in the past. Invoke the quick version of the window by pressing **UP** key in the SCPI Command Field. The full version you can invoke by pressing **DOWN** in the SCPI Command Field (10).
+7. **Favorite Commands** - mark your commands as favorite with the left-click, or open the Favorites window with the right-click.
+8. **Multi-line SCPI Editor (F6)** - open this popup window to manage multiple lines of SCPI commands. :any:`See below <itw_multi_line_scpi_editor>`.
+9. **SCPI Command Drag Button** - drag the SCPI command to your script or to another editor. On drop, you can decide to insert plain string or SCPI call snippet. 
+10. **SCPI Command Field with Auto-completion** - write your SCPI command here. If your instrument has a SCPI Tree available (see :ref:`7. Function Panel - SCPI Tree`), this field offers you auto-completion for SCPI commands.
+11. **Communication Action Button** - sends/queries the current SCPI command (Field 10) to the instrument. The button changes its function based on the command type (write/query). The response is automatically recognized as binary, and the result display changes accordingly. You can also select the mode with the Field 11 - see the tip below.
+12. **More Options** - select the type of write/query action - standard, with OPC, query binary data. The setting is persistent. You can also select whether you want to see two separate buttons for Write and Query.
+13. **SCPI Response Field** - text field that contains responses received from the instrument.
+14. **SCPI Response Field Resizer** - change the height of the response field to fit your needs.
+15. **Response Info** - shows additional response information. For text, it shows its length and if commas are detected, it counts number of elements.
+16. **Save Binary Response to File** - this button is enabled, when you have received a binary response from the instrument.
+17. **Copy Response to Clipboard** - enabled when the SCPI Response Field (Field 12) is non-empty.
+
+.. tip::
+    You can configure the look-and-feel of the Communicator in :any:`settings_instrument_tool_windows`
+
+.. tip::
+    If you use HiSlip or VXI-11, switch to the mode write/query with OPC (Field 11). This is very convenient, since in case of an SCPI error, you do not have to wait for VISA timeout:
+
+    .. image:: images/RsIcITW-comm_with_opc.drawio.png
+
+.. hint::
+    The **Connect/Disconnect Button** (1) has a right-click context menu with some useful features:
+
+    .. image:: images/RsIcITW-connect_button_context_menu.drawio.png
+
+.. note::
+    If your SCPI Query reads a binary block, the response display changes to show binary data:
+
+    .. image:: images/RsIcITW-binary_response.drawio.png
+
+
+Commands History
+"""""""""""""""""
+
+Each command you send to your instrument is stored in a persistent history, which is grouped by the instrument's family. That means, that for example, both SMW200A and SMM100A share the same history and favorite commands, because they both belong to the family of Vector Signal Generators. The Commands History window has two versions: **Quick** and **Full**. You can invoke the quick version by pressing **UP** key while typing in the **SCPI Command Field** (10). Quick version has the last command sent at the bottom:
+
+.. image:: images/RsIcITW-cmds_history_quick.drawio.png
+
+Full Version is invoked with **DOWN**, or clicking on **Commands History** button (6). The last command sent is at the top. Full version allows you to edit the list with drag and drop or **DELETE** key. Pressing **ENTER** or double-clicking sends the command to the instrument. Dragging a command to you opened Python script inserts the call snippet. If you want to drag more than one command, use the **Right Mouse Button**. You can pin the window to prevent it from auto-closing:
+
+.. image:: images/RsIcITW-cmds_history_full.drawio.png
+
+Favorite Commands
+""""""""""""""""""
+
+You can mark any command of the instrument as favorite to have a quick access to it by clicking the star icon on the communication panel (7). To open the Favorites Window, right-click the star icon. Same as for the Commands History, the Favorites are stored for the entire family of instruments. Here you also have an option to edit or manually add commands:
+
+.. image:: images/RsIcITW-cmds_favorites.drawio.png
+
+.. _itw_multi_line_scpi_editor:
+
+Multi-line SCPI Editor
+"""""""""""""""""""""""""""""
+
+Since Version 2.0.0, the Multi-line SCPI Editor is a standard Pycharm Text editor, but with a special top panel for execution and parse controls. It overcomes the limitation of a single-line SCPI Command field.
+The SCPI Editor is in detailed described in :any:`plain_scpi_scripts`.
+
+Open the Multi-Line SCPI Editor:
+
+.. image:: images/RsIcITW-multi_line_open.drawio.png
+
+Multi-line SCPI Editor GUI:
+
+.. image:: images/RsIcITW-multi_line_scpi_cmds.drawio.png
+
+The meaning of the **Command Banks** is also described in the chapter :any:`Plain SCPI Editor Flavors <plain_scpi_editor_flavors>`.

@@ -1,0 +1,24 @@
+.. _function_panel_scpi_recorder:
+
+11. Function Panel - SCPI Recorder
+===================================
+
+SCPI Recorder offers the easiest way to convert manual operation of your instrument into remote-control SCPI calls.
+Simply put: you operate your instrument manually, and the corresponding SCPI commands appear in your script. Currently only our Hi-end Signal Analyzers and Generators offer this feature, but if you are a lucky user of such instrument(s), you are going to enjoy the heck out of it.
+
+.. image:: images/FunctionPanel_ScpiRecorder.drawio.png
+
+Description of the controls:
+
+1. **Function Panel SCPI Recorder** - select this tab to access SCPI Recorder features.
+2. **Start the SCPI Recorder** - starts recording of user interactions on the instrument. If the SCPI Recorder already contains some commands, you get a choice to keep or clear them.
+3. **Stop the SCPI Recorder** - stop the SCPI recording.
+4. **Go To Local** - orders your instrument to switch to local mode so you can operate it. This is already done after you start the SCPI Recorder, but if for any reason you need to do it again, use this button.
+5. **Poll periodically** - if ON, the SCPI Recorder Panel continuously polls your instrument for new SCPI commands. You can stop it with this button and just perform single poll by right-clicking it or hitting **F5**.
+6. **Delete commands** - deletes all the SCPI commands in your list and in the instrument's SCPI recorder list.
+7. **Paste to your script as snippets** - if ON, recorded commands not only appear in your SCPI Recorder list, but also in your script as SCPI call snippets. You can always drag them there afterwards by grabbing the gutter.
+8. **Autoscroll** - if ON, the window scrolls automatically when new commands are added.
+9. **Poll signal** - lights up every time the SCPI Recorder Panel queries the instrument for new commands. Notice, that when there are no new commands coming, the polling becomes less frequent, and it is reset back to 1 second after new commands are added.
+
+.. hint::
+	The text editor here is a standard :any:`SCPI Editor <plain_scpi_scripts>` without the controls strip. It also does not offer executing or parsing the commands. For that, you have to drag them to another SCPI Editor.
