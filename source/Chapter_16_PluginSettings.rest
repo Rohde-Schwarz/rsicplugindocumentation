@@ -17,8 +17,7 @@ General settings for the plugin, plus import/export features for the stored data
 
 Description of the controls:
 
-- **Check for RsInstrument Python package** - when checked, the plugin checks for the updates of the RsInstrument package. This only happens, during the IDE start. Disable it if it takes too long.
-- **SCPI Font** - change the font for SCPI components - SCPI Communicator, SCPI Tree, File Browser, Favorites, History and history windows, SCPI Logger (new entries).
+- **SCPI Font** - change the font for SCPI components - SCPI Communicator, SCPI Tree, File Browser, Favorites, History, and history windows, SCPI Logger (new entries).
 - **Editor Context Menu Items** - items displayed in your Python script context-menu, when your caret is on a SCPI-command call:
     
     - **Show Item: Open in Web-Help** - show entry to open the SCPI command Web-Help.
@@ -31,7 +30,7 @@ Description of the controls:
 - **Import Plugin Settings** - imports the selected xml file as a plugin setting. You need to restart the Pycharm afterwards.
 - **Reset Settings to Default** - resets all the plugin's settings to default values. The Instrument List is preserved.
 - **Reset Show Dialogs** - resets all the 'Do not show anymore' checkboxes on popup messages back to false.
-- **Temporary Folder for Instrument Files** - when you operate the File Browser, all the files copied from the instrument are stored in this path. We recommend to check the occupied size and clear this folder from time to time.
+- **Temporary Folder for Instrument Files** - when you operate the File Browser, all the files copied from the instrument are stored in this path. We recommend checking the occupied size and clear this folder from time to time.
 - **Folder with Macro Script Files** - in this folder, all the macro scripts are stored. Change it to your liking.
 
 16.2 Instrument Panels
@@ -66,8 +65,11 @@ Description of the controls:
 - **Show Remote Display Buttons** - if the Remote-display is enabled, the ITW shows its enabled buttons.
 - **Show History Button** - shows button left of the SCPI Text Field to open the History commands window. You can invoke it also from the SCPI Text Field context-menu.
 - **Show Favorites Button** - shows button left of the SCPI Text Field to mark commands as favorites or open the Favorites window. You can also invoke the window from the SCPI Text Field context-menu.
-- **Show Multiline Button** - shows button left of the SCPI Text Field to open the Multi-line commands editor window. You can invoke it also from the SCPI Text Field context-menu or with the shortcut **F6**.
-- **Enable All Function Panels** - overrides the internal table with the information which instrument supports which feature, and enables all the function panels. Use this on your own risk...
+- **Show Multiline Button** - shows button left of the SCPI Text Field to open the Multi-line commands editor window. You can also invoke it from the SCPI Text Field context-menu.
+- **Show Go To Local Button** - shows button next to the Connect button for the instrument to go to local mode.
+- **Show Go To Remote Button** - shows button next to the Connect button for the instrument to go to remote mode.
+- **Show Error Check Button** - shows button left of the SCPI Text Field for the instrument to toggle the instrument's error checking which happens after each Write/Query command.
+- **Enable All Function Panels** - overrides the internal table with the information which instrument supports which feature and enables all the function panels. Use this on your own risk...
 - **Offer Drop Plain Commands in Editor** - when you drag SCPI command(s) to your python editor, on drop you get the option to add them as plain strings. If you want to avoid that drop popup, uncheck this option.
 - **Write Call Snippets with OPC** - if unchecked, all the write call snippets use the ``Write Command`` template. Check this to use the ``Write Command with OPC`` template`.
 - **Query Call Snippets with OPC** - if unchecked, all the query call snippets use the ``Query Command`` template. Check this to use the ``Query Command with OPC`` template`.
@@ -75,8 +77,8 @@ Description of the controls:
 - **Maximum Displayed Length of SCPI binary response** - if a binary response from your instrument is longer than this number, the ITW's Response Field shows only the truncated length.
 - **VISA Timeout in ms for SCPI Tree Reading** - maximum time the plugin waits for the instrument's response when reading the SCPI Tree. You can adjust it higher if your instrument needs more time to respond.
 - **VISA Timeout in ms for File Browser Reading** - maximum time the plugin waits for the instrument's response when performing File Browser operations. You can adjust it higher if your instrument needs more time to respond.
-- **Maximum Commands in History** - defines maximum amount of commands stored in the Commands History window. The oldest commands are then deleted. Needs restart.
-- **Maximum Commands in Favorites** - defines maximum amount of commands stored in the Commands Favorites window. The oldest commands are then deleted. Needs restart.
+- **Maximum Commands in History** - defines maximum number of commands stored in the Commands History window. The oldest commands are then deleted. Needs restart.
+- **Maximum Commands in Favorites** - defines maximum number of commands stored in the Commands Favorites window. The oldest commands are then deleted. Needs restart.
 - **Maximum Multi-line Commands length** - defines maximum length of the Multi-line SCPI Editor text (per bank) that is stored between the Pycharm runs.
 
 
@@ -97,12 +99,12 @@ Description of the controls:
 
     - **All Commands** - always suggest all the available commands.
     - **Selected Group** - suggest only the commands from the currently selected group. If the instrument does not support group commands, this mode has the same effect as **All Commands**.
-    - **Filtered Commands** - only suggest the commands that are currently visible in the SCPI Tree Function panel, also taking Filter feature into account.
+    - **Filtered Commands** - only suggest the commands that are currently visible in the SCPI Tree Function panel, also taking filtering into account.
 
 - **Chained Auto-popups** - when the SCPI commands suggestion starts, the suggestion popups are invoked automatically until the command is completed.
 - **Update ITW Search Field** - as the auto-completion composes the SCPI command, the :ref:`Find Field 5 in the ITW SCPI Tree<7. Function Panel - SCPI Tree>` is updated, which triggers the SCPI Tree item navigation.
 - **Loose SCPI  matching** - set this to true, if you want the auto-completion to also work on SCPI commands that are missing optional parts.
-- **Threshold for Full Commands List** - as you are completing a SCPI command, the amount of the possible suggestions decreases. When it falls below this threshold, the suggestions will contain not only the next header, but the full command up to the end.
+- **Threshold for Full Commands List** - as you are completing a SCPI command, the number of the possible suggestions decreases. When it falls below this threshold, the suggestions will contain not only the next header, but the full command up to the end.
 - **Default Instrument for SCPI Tree** - there are cases, where you are might use script variables that do not fit any of your instrument's aliases. Such case is for example a common sub-routine serving more than one instrument. If you still want the SCPI code completion to work, you have to tell the RsIC which SCPI Tree to use. You can do it here by defining a default instrument.
 
 16.5 Code Inspections
@@ -121,8 +123,10 @@ Description of the controls:
 16.6 Templates
 """"""""""""""""""""""
 
-Here, you can customize all the paste snippets. For easier switching between different templates, you have 3 banks (presets) at your disposal.
-The one selected and visible is the active one. The Templates are split into 4 groups: General, Write, Query, File. For multi-line snippets, use the linefeed mark ``<NEWLINE>``. For example, a query snippet with two separate write+read calls: ``%ALIAS%.write(%CMD_TO_SEND_STR%);<NEWLINE>resp=%ALIAS%.read();``.
+Here, you can customize all the paste snippets. We have 3 pre-defined templates for Python, C# and MATLAB, plus one user-defined template.
+
+RsIC uses teplates every time you want to create call snippet from a SCPI command. Based on the target file extension, the RsIC uses the corresponding template.
+Templates are split into 4 groups: General, Write, Query, File. For multi-line snippets, use the linefeed mark ``<NEWLINE>``. For example, a query snippet with two separate write+read calls: ``%ALIAS%.write(%CMD_TO_SEND_STR%);<NEWLINE>resp=%ALIAS%.read();``.
     
 
 - General, Write and Query templates are used by the SCPI Communicator to import package, create the constructors, write and query commands.
@@ -137,10 +141,10 @@ Default Remote Display settings for VNC and RDP (Remote Desktop). You can custom
 
 .. image:: images/RsIcSettings-remote_display.drawio.png
 
-Remote Display control uses external applications that are launched through command line. They differ for Windows, Linux, and macOS. This description is for Windows OS:
+Remote Display control uses external applications launched through command line. They differ for Windows, Linux, and macOS. This description is for Windows OS:
 
-- **VNC Settings** - you can choose standard settings for UltraVNC or TightVNC, or select custom settings for any VNC application you prefer.
-- **RDP Settings** - for Windows, the only pre-configured application is Microsoft's MSTSC. Because of the security policy, you have to manually enter your credentials every time you open the RDP session.
+- **VNC Settings** - you can choose standard settings for UltraVNC or TightVNC or select custom settings for any VNC application you prefer.
+- **RDP Settings** - for Windows, the only pre-configured application is Microsoft's MSTSC. Because of the security policy, you must manually enter your credentials every time you open the RDP session.
 
 .. _settings-scpi_editors:
 
@@ -158,8 +162,7 @@ Description of the controls:
 - **Show OPC-sync icons in the SCPI editor gutter** - gutter icons show red sand clock icons for ``*OPC`` commands, and green sand clock icons for ``*OPC?`` queries.
 - **Show Error Check icons the SCPI editor gutter** - gutter icons show blue icons for all error-checking commands.
 - **Maximum parser commented lines** - in the SCPI parser, when you use the option to show non-parsed lines as comments, the parser shows maximum of this many lines.
-- **Comment leading characters** - characters to use when you toggle comment/uncomment of line(s). Notice that this value contains one leading space by default.
-- **Update SCPI search text on caret line change** - if the Search Window is active (shortcut F3), its search text follows the current editor caret position.
+- **Update SCPI search text on caret line change** - if the Search Window is active (shortcut F3), its search text is updated based on the current editor caret position.
 - **Update SCPI search text while typing** - if the Search Window is active (shortcut F3), its search text is updated as you type.
 - **Response inlays relative size** - relative font size of the inlay text. 0 means same size as the current editor font size.
 - **Maximum inlays text length** - limit the length of the inlays.
@@ -178,7 +181,7 @@ Common settings for the Curves Tool Windows:
 
 Description of the controls:
 
-- **Chart constant width / height** - If you've selected 'Keep the chart size constant' in your Curves Tool Window, the chart keeps the dimensions defined here.
+- **Chart constant width / height** - If you have selected 'Keep the chart size constant' in your Curves Tool Window, the chart keeps the dimensions defined here.
 - **Chart background color** - by default it is white, even for Darcula Theme. Change it to your liking.
 - **Chart A/B color + Style** - you can adjust the color and points style of curves A/B.
 - **CSV columns/lines separator** - relevant, if you work with CSV export feature, by default the columns are separated by comma, and lines by Linefeed.

@@ -1,7 +1,7 @@
 8. Function Panel - Hardcopy
 =============================
 
-Hardcopy is a function that captures content of the instrument's screen. Our plugin offers that with one click (OK, it could be up to 3 clicks :-).
+Hardcopy is a function that captures content of the instrument's screen. Our plugin offers that with one click (OK, it could be up to three clicks :-).
 
 .. image:: images/FunctionPanel_Hardcopy.drawio.png
 
@@ -13,7 +13,7 @@ Description of the controls:
 4. **Copy to Clipboard Button** - copies the file to Clipboard in original size.
 5. **Fit to View** - automatically performed after the successful screenshot acquisition. Adjust the picture size to fit the view with limited width or height. Does the zoom > 1:1 too.
 6. **Show in Original Size** - changes the picture back to the original size and activates the view pane's scroll controls if necessary.
-7. **Go Automatically to Local Afterwards** - after the screenshot is done, the instrument goes to local.
+7. **Go Automatically to Local Afterwards** - after the screenshot is finished, the instrument goes to local.
 8. **Auto File Naming** - if checked, you do not need to enter new name by each "Save", you only enter it once, and the further ones are then auto-named with name suffix indexes _001, _002, _003 and so on...
 
 

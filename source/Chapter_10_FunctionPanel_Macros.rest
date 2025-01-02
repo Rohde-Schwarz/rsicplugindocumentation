@@ -9,7 +9,7 @@ A Macro in the context of the plugin, is a python script that contains a defined
 
     execute(rsrc_name: str, opts: str, instr_name: str, instr_alias: str, mods: str, **kwargs)
 
-Such macro can be reused by multiple instrument panels which then call the ``execute`` function with their specific instrument information.
+You can reuse such macro by multiple instrument panels which then call the ``execute`` function with their specific instrument information.
 The script also gets the ``mods`` variable, that signals which modification keys you used when clicking the macro button - CTRL/ALT/SHIFT. We have some ready-to-use macros (see button **3. Add Default**) to get you started.
 
 Let us look at the Function Panel:
@@ -19,7 +19,7 @@ Let us look at the Function Panel:
 Description of the controls:
 
 1. **Function Panel Macros** - tab selector for the Macros.
-2. **Add new Macro Button** - shows a dialog where you specify the macro's name (button's label), script file (if new, it will be created and opened in your Pycharm editor), the function name, and the kwargs (optional).
+2. **Add new Macro Button** - shows a dialog where you specify the macro's name (button's label), script file (if new, it will is created and opened in your Pycharm editor), the function name, and the kwargs (optional).
 3. **Add Default Macros** - adds universal macros that you can use with any instrument (for example, read instrument options). Use these as a starting point to define your own macro scripts.
 4. **Add from Existing Macros** - copy the existing macros from other instruments.
 5. **Macro Buttons Area** - contains all the macros defined for your instrument. The context-menu allows you to open the folder containing the macro scripts. Each button has its own context-menu with related actions.
@@ -70,10 +70,7 @@ The function ``execute`` receives the data from the instrument panel that invoke
 Notice the ``__main__`` guard at the bottom: it helps you to debug the script - you can run it as is. The parameters supplied are of the function panel from which you opened it, in our example an SMW200A instrument. The cool feature is, if you open the same macro script from another panel, for example an FSW, this part is updated to correspond the FSW settings. This way, if you debug the macro, you always have the correct instrument parameters.
 
 .. hint::
-    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <16.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of you project. You can safely select the first or the second option:
-
-    .. image:: images/pycharm_macros_edit_warning.png
-
+    The macros are stored to a folder which you can change in the :ref:`Settings -> Instrument Tool Windows <16.3 Instrument Tool Windows>`. If you want to edit a macro, you get a warning window from Pycharm, because the folder is not a part of your project. You can safely select the option to edit the file or edit all the files in the directory.
 
     Remember, to manually save the modified script, because Pycharm does not do it automatically for files outside your project.
 

@@ -6,15 +6,15 @@
 Before you continue with this chapter, :any:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`. 
 That allows you to use SCPI auto-completion and SCPI search in your SCPI script.
 
-Let us write some python remote-control script for your SMW200A.
+Let us write one python remote-control script for your SMW200A.
 The most important value that binds your instrument from the list to your python script is the **Alias**, in our case, ``smw``.
 This is going to be the script variable name for our object:
 
 .. image:: images/RsIcAutoComp-aliases.drawio.png
 
 .. tip::
-    In some cases, where you cannot have the alias equal to the script variable name, you can set a **Default Instrument for SCPI Tree**.
-    This is then used in cases where your script variable name does not fit any instrument alias.
+    In cases where you cannot have the alias equal to the script variable name, you can set a **Default Instrument for SCPI Tree**.
+    This is then used when your script variable name does not fit any instrument alias.
     See the :ref:`settings-scpi-code-completion`.
 
 Let us start with creating the script file. The easiest way is to use the feature **Create Hello-World Script**:
@@ -45,11 +45,7 @@ If you start with a python script from scratch, you need to initialize the conne
 
     smw = RsInstrument('TCPIP::10.102.52.47::hislip0', reset=False)
 
-Enter the ``*IDN?`` to the **SCPI Command Field**, use the **SCPI Command Drag** button, and drag the command to an appropriate place in your script. On dropping, select ``SCPI Query Snippet``:
-
-.. image:: images/RsIcAutoComp-paste_as_snippet.drawio.png
-
-You script will look similar to this:
+Enter the ``*IDN?`` to the **SCPI Command Field**, use the **SCPI Command Drag** button, and drag the command to an appropriate place in your script. You script will look like this:
 
 .. code-block:: python
 
@@ -59,20 +55,12 @@ You script will look similar to this:
     result = smw.query('*IDN?');
 
 
-.. tip::
-    You can change the format of the pasted code with templates in :ref:`settings-templates`.
-
-    To change the pasted snippets between ``write / write_with_opc`` and ``query / query_with_opc`` , use the :any:`settings_instrument_tool_windows`. You can also disable the option of dropping the plain commands. In such case, the dropping happens immediately:
-
-    .. image:: images/RsIcAutoComp-snippets_format.drawio.png
-
-
 14.2 Writing scripts - Auto-completion
 """""""""""""""""""""""""""""""""""""""
 
 SCPI auto-completion works with python call expressions, where the origin object name is your instrument alias, and the method contains an argument of string-type. Type (do not copy/paste) for example this:
 
-.. image:: images/script_autocomplete_suggestions.png
+.. image:: images/RsIcAutoComp-scpi_autocomplete_suggestion.drawio.png
 
 Select your desired command and use **TAB** to insert it. Pycharm immediately shows you another part of the command to auto-complete.
 
@@ -120,11 +108,11 @@ The :any:`SCPI parser <advanced_scpi_parser>` is available in the right-click co
 	fprintf(smw, 'SOURce1:FREQuency:CW 2000000000');
 	fprintf(smw, 'OUTPut1:STATe 1');
 
-Go to your python script, right-click on the place you want to add the code and select **Parse SCPI**:
+Go to your python script, right-click on the place you want to add the code and select **Paste SCPI Special**:
 
 .. image:: images/RsIcAutoComp-scpi_parser_context_menu.drawio.png
 
-The parser recognises the format as MATLAB and shows you only the parsed SCPI commands:
+The parser recognizes the format as MATLAB and shows you only the parsed SCPI commands:
 
 .. image:: images/RsIcAutoComp-scpi_parser_result.drawio.png
 
@@ -148,8 +136,19 @@ Now click **Add and Close**, select the default target instrument and your comma
 14.5 Writing scripts - Drag & Drop from SCPI files
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-Here we combine two great features - one of Pycharm and one of RsIC plugin: We arrange our SCPI Editor and our Python Editor side-by-side. 
-Open the scripts ``smw_script.scpi`` and ``hello_world_smw.py`` in your editors. Right-click on the ``hello_world_smw.py`` tab, and select **Split and Move Right**:
+Here we combine two excellent features - one of Pycharm and one of RsIC plugin: We arrange our SCPI Editor and our Python Editor side-by-side.
+Open the scripts ``hello_world_smw.py`` and the Multi-line editor for the SMW ``SMW200A_MLeditor.scpi``. Right-click on the ``SMW200A_MLeditor.scpi`` tab, and select **Split and Move Right**. For the SCPI editor content, use for example this:
+
+.. code-block:: console
+
+	*RST
+	*OPC?
+	*IDN?
+	SOURce1:MODulation:ALL:STATe?
+	SOURce1:BB:ARBitrary:STATe 1
+	SOURce1:POWer:LEVel:IMMediate:AMPLitude -37.00
+	OUTPut1:STATe 1
+	*OPC?
 
 .. image:: images/RsIcAutoComp-editors_split_right.drawio.png
 
@@ -157,7 +156,13 @@ Now drag for example the **\*IDN?** command using the SCPI Editor Drag area to y
 
 .. image:: images/RsIcAutoComp-editors_side_by_side.drawio.png
 
-Of course, we support dragging of multiple lines: make a selection in the SCPI editor and use the drag area to drag them to your python script.
+The result will be the following snippet:
+
+.. code-block:: python
+
+	resp = smw.query('*IDN?')
+
+Of course, we support dragging of multiple lines: select the lines in the SCPI editor and use the drag area to drag them to your python script.
 
 .. note::
     By splitting/moving editors, you can have a situation where one SCPI file is opened in multiple SCPI Editors. In such case, the executing controls are only available in one of them.

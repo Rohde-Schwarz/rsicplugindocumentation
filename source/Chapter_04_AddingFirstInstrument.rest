@@ -15,9 +15,9 @@ Enter the IP Address or the computer name and hit the **Test** button. We are lu
 
 **Name**, **Alias**, **Icon Picture** come pre-filled with the values parsed from the instrument's IDN response:
 
-	- **Name** - has to be unique in your list of instruments.	
+	- **Name** - must be unique in your list of instruments.	
 	- **Alias** - in your case ``smw``, you are going to reference your instrument from python scripts.
-	- **Family** - non-editable field, it is set according the internal table to specify the family of your instrument.
+	- **Family** - non-editable field, it is set automaticaly to specify the family of your instrument.
 	- **Comment** - add custom comment/note to this instrument.
 
 .. hint::
@@ -27,20 +27,17 @@ Enter the IP Address or the computer name and hit the **Test** button. We are lu
 .. tip::
     If your LAN connection does not work, try to use the **Ping** button to see whether the instrument is available on LAN.
     Searching for LAN instruments only works in certain scenarios. If your instrument does not appear in the found list, it does not necessary mean that it is not available.
-    The Search feature is very helpful with USB-TMC instruments, where it finds all of them:
+    The Search feature is extremely helpful with USB-TMC instruments, where it finds all of them:
 
     .. image:: images/RsIc-instrument_search_usbtmc.drawio.png
 
 .. _instr_config_advanced_options:
 
-**Advanced Options** button allows you select additional settings for your session, like VISA selection (we hope you use R&S VISA :-), VISA Timeout, Logging mode, etc... :
+**Advanced Options** button allows you select additional settings for your session, like VISA selection (we hope you use R&S VISA :-), VISA Timeout, Logging mode, etc...:
+
+.. image:: images/RsIc-advanced_options_button.drawio.png
 
 .. image:: images/RsIc-additional_session_settings.drawio.png
-
-You can also adjust the icon picture or even add your own custom picture with the button **Select Icon** (or single-click on the current icon picture).
-If possible, use the format 640x480:
-
-.. image:: images/RsIc-select_icon.drawio.png
 
 .. note::
     Settings in this configuration dialog results in a Python code snippet for RsInstrument that you can copy to clipboard by hitting the button **Copy Constructor Code**.
@@ -48,4 +45,4 @@ If possible, use the format 640x480:
 
     .. code-block:: python
 
-        smw = RsInstrument('TCPIP::10.102.52.42::hislip0', reset=False, options='SelectVisa = rs, VisaTimeout = 3000')
+        smw = RsInstrument('TCPIP::10.102.52.25::hislip0', reset=False, options='VisaTimeout = 3000, SelectVisa = rs')

@@ -18,7 +18,6 @@ Description of the controls:
 6. **Delete commands** - deletes all the SCPI commands in your list and in the instrument's SCPI recorder list.
 7. **Paste to your script as snippets** - if ON, recorded commands not only appear in your SCPI Recorder list, but also in your script as SCPI call snippets. You can always drag them there afterwards by grabbing the gutter.
 8. **Autoscroll** - if ON, the window scrolls automatically when new commands are added.
-9. **Poll signal** - lights up every time the SCPI Recorder Panel queries the instrument for new commands. Notice, that when there are no new commands coming, the polling becomes less frequent, and it is reset back to 1 second after new commands are added.
 
 .. hint::
 	The text editor here is a standard :any:`SCPI Editor <plain_scpi_scripts>` without the controls strip. It also does not offer executing or parsing the commands. For that, you have to drag them to another SCPI Editor.

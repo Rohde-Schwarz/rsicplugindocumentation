@@ -47,29 +47,6 @@ Type the search text, for example 'rohde', and hit install.
 .. hint::
 
     If you do not see the plugin listed, you have a Pycharm version older than **2023.1**.
-    Update your Pycharm to the newest version, and repeat the process.
+    Update your Pycharm to the newest version and repeat the process.
 
 After that, you have to restart the Pycharm IDE.
-
-.. _installation_local_file:
-
-**Installation from a local file:**
-
-In Pycharm, go to menu *File -> Settings -> Plugins* and choose *Install Plugin from Disk*:
-
-.. image:: images/RsIc-menu_install_from_file.drawio.png
-
-Select the plugin **zip** file, e.g.: ``RsConnectivityPycharmPlugin-3.1.0.zip``
-
-After that, you have to restart the Pycharm IDE.
-
-.. warning::
-
-    **Do not unpack the .ZIP file!!!** Select the **.ZIP** file for the installation.
-    Although Pycharm allows you to select the included **.JAR** files, the plugin will not work properly.
-
-.. hint::
-
-    On **macOS**, try to avoid the offline installation.
-    The reason is: Safari with its default settings ``Open safe files after downloading`` extracts the zip file and deletes it,
-    which complicates the installation process - you have to pack the files again to a zip file or change the default Safari settings.

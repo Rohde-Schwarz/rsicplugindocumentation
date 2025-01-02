@@ -1,3 +1,24 @@
+Version 3.6.1 - 13.12.2024
+	- Fixed not working SCPI code completion in SCPI Fields and SCPI Editors.
+
+Version 3.6.0 - 05.12.2024
+	- Reworked Templates system - now you can also generate C#, MATLAB, or custom language code.
+	- Added History of Resource Names in the Instrument Configuration Window.
+	- Reworked and improved Copy-Paste-Drag/Drop behaviour. Paste Special Context menu allows for pasting SCPI with different options.
+	- Examples of SCPI Write/Query commands now also include parameters, even the complex ones.
+	- Added SFI instrument.
+	- Added C# code SCPI Parser.
+	- Fixed NRX Screenshot and File Browser for Firmware > 2.61.
+	- Fixed SCPI Files annotations for inactive instruments.
+	- Added SFI instrument.
+	- Improved NI IO VISA Trace Parser for German language.
+	- Fixed GUI behaviour when changing the theme.
+	- Added session interface type symbols to instrument icons (switchable).
+	- In the Instrument configuration: added history for LAN IP Address, USB PID,VID,SN, Custom Resource Name.
+	- Added copy/paste of single instrument in the instrument's list.
+	- Fixed \0 appearance in the SCPI parser results.
+	- Fixed SCPI Editor Controls for master/second File Editors.
+
 Version 3.5.0 - 23.09.2024
 	- Added EPL instrument.
 	- Added SCPI Recorder for ZNB.
