@@ -1,0 +1,4 @@
+Changelog
+=========
+
+.. include:: Readme.txt

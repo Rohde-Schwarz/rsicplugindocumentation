@@ -1,0 +1,36 @@
+Instruments panel list
+======================
+
+Instruments Panels List (**IPL**) serves as an overview of all your instruments, and as a launchpad for dedicated Instrument Tool Windows for each instrument:
+
+Example of the IPL:
+
+.. image:: images/RsIc-instrument_panel_list.drawio.png
+
+Description of the controls:
+
+- ``1: Collapse the Instrument Panel`` - you can minimize the Instrument Panel to a small icon and the name.
+- ``2: Open Instrument Tool Window`` - opens dedicated Instrument Tool Window (ITW) with all the functions for the instrument. See the :doc:`Chapter_06_InstrumentsToolWindow`.
+- ``3: Test the Connection`` - tests, whether the connection to your instrument can be established. The connection closes afterwards.
+- ``4: Configure the Instrument`` - opens the instrument's configuration dialog described in :ref:`adding-your-first-instrument`.
+
+.. tip::
+    Adjust the look and feel in General Plugin Settings:
+
+    .. image:: images/RsIc-general_settings_invoke.drawio.png
+
+    |
+
+    .. image:: images/RsIc-instrument_panel_list_settings.drawio.png
+
+
+.. _ipl_context_menu:
+
+.. tip::
+    You can reach all the functionalities (and some more) through the context menu: right-click on the instrument picture. Select the **Open in Extra Window** or press 'Q':
+
+    .. image:: images/RsIc-instrument_panel_context_menu_open_itw.drawio.png
+
+    |
+
+    **Open in Extra Window** is only available if you have made at least one successful connection to your instrument. This is because the plugin needs to know the instrument's identity.

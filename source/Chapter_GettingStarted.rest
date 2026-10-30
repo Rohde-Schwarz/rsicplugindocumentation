@@ -1,0 +1,79 @@
+.. _getting-started-five-minutes:
+
+Getting started in 5 minutes
+============================
+
+This walkthrough takes you from a fresh install to a three-line SCPI script.
+Each step links to the full chapter if you need more detail.
+
+1. Installation
+---------------
+
+Install PyCharm 2025.1 or newer, a Python interpreter, optionally
+`RsInstrument <https://rsinstrument.readthedocs.io/en/latest/StepByStepGuide.html#installation>`_
+and `R&S VISA <https://www.rohde-schwarz.com/applications/r-s-visa-application-note_56280-148812.html>`_.
+
+Install the plugin from the Marketplace (*File → Settings → Plugins*), search ``rohde``, then restart the IDE.
+
+.. image:: images/RsIc-menu_install_from_marketplace.drawio.png
+
+Or use the Marketplace button:
+
+.. raw:: html
+
+    <p align="center"><iframe width="245px" height="48px" frameBorder="0" src="https://plugins.jetbrains.com/embeddable/install/19828"></iframe></p>
+
+Full requirements: :doc:`Chapter_02_Installation`.
+
+2. Add an instrument
+--------------------
+
+Open the tool window **Rohde & Schwarz Instruments** (gutter, or *View → Tool Windows*).
+Click **+ Add new Instrument**, choose HiSLIP (or USB-TMC / VXI-11), enter the IP or hostname, and **Test**.
+
+.. image:: images/RsIc-add_new_instrument_success.drawio.png
+
+Keep the **Alias** (for example ``smw``). You will use it in scripts.
+
+Details: :ref:`adding-your-first-instrument`.
+
+3. Send a query
+---------------
+
+Open the Instrument Tool Window from the instrument panel (or right-click → **Open in Extra Window**).
+Connect, type ``*IDN?`` in the SCPI command field, and send.
+
+.. image:: images/RsIcITW-comm_panel.drawio.png
+
+The identification string appears in the response field.
+
+Details: :doc:`Chapter_06_InstrumentsToolWindow`.
+
+4. Read the SCPI Tree
+---------------------
+
+Stay connected. Open the **SCPI Tree** tab and **Read Tree from Instrument**.
+Do this once per firmware; the tree is then cached and drives auto-completion and search.
+
+.. image:: images/FunctionPanel_ScpiTree-read_scpi_tree.drawio.png
+
+Details: :doc:`Chapter_07_FunctionPanel_ScpiTree`.
+
+5. A short script in the multi-line SCPI editor
+-----------------------------------------------
+
+On the communicator, open the **Multi-line SCPI Editor**. Enter:
+
+.. code-block:: console
+
+    *RST
+    *OPC?
+    *IDN?
+
+Press **F5** (execute all). Responses show as inlays. **F4** runs the current line.
+
+.. image:: images/RsIcScpiScripts-ml_run_whole_script_result.drawio.png
+
+The bound editor is stored with the instrument (command banks). For a project ``.scpi`` file, use *New → SCPI File*.
+
+Details: :doc:`Chapter_13_PlainScpiScripts`.

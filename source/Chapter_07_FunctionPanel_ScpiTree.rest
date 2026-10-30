@@ -1,0 +1,55 @@
+.. _function_panel_scpi_tree:
+
+SCPI tree
+=========
+
+SCPI Tree is a tab of the Instrument Function Panel allowing you to access all the instrument's supported SCPI commands.
+
+.. image:: images/FunctionPanel_ScpiTree-func_panel_scpi_tree.drawio.png
+
+Description of the controls:
+
+- ``1: Function Panel SCPI Tree Tab`` - select this tab to access SCPI Tree features.
+- ``2: Read Tree from Instrument`` - button which requires active connection (see SCPI Communicator). Use it to read the SCPI Tree from the instrument. You only need to do it once per firmware. After that, the SCPI Tree is cached in your computer.
+- ``3: Filter Controls`` - Filter Toggle button switches the filtering of the tree ON/OFF. Filtering uses a powerful SCPI-syntax tailored engine to filter commands you are searching for. See the control's tooltip for more details on the syntax.
+- ``4: Search Controls`` - Search button and the Search Text allow for searching of next element fulfilling the search text. The syntax is the same as for the Filter Control.
+- ``5: Flat List`` - toggle the display to flat list of commands, or a tree.
+- ``6: Expand all Tree Branches`` - expands all the SCPI Tree branches.
+- ``7: Collapse all Tree Branches`` - collapses all the SCPI Tree branches.
+- ``8: Tree Settings Panel`` - opens popup window with settings related to look-and-feel of the SCPI Tree branches and commands.
+
+.. _function_panel_scpi_tree_read_tree:
+
+Reading the SCPI Tree
+"""""""""""""""""""""
+
+Once you read the instrument's SCPI Tree, you can use all the features related to SCPI auto-completion and SCPI search operations. Getting started already does this once. The cached tree is tied to a firmware version; after a firmware update, read it again.
+
+Follow the operations in order shown on the picture below:
+
+	- ``1: Connect`` to your instrument.
+	- ``2: Select`` the SCPI Tree Function Panel tab.
+	- ``3: Read`` the SCPI Tree from the instrument.
+
+.. image:: images/FunctionPanel_ScpiTree-read_scpi_tree.drawio.png
+
+
+Each SCPI Tree item has a dedicated menu with useful actions. Example for a single SCPI Command node:
+
+.. image:: images/FunctionPanel_ScpiTree-scpi_tree_context_menu.drawio.png
+
+.. tip::
+
+    Check the tooltip texts for the Filter and Search text fields, they show syntax and examples for the match expressions:
+    The filter/search text is a combination of space-separated tokens with logical AND between them:
+
+        - Search for a SCPI part that must follow in this very order: ``CONF:FREQ``
+        - Search for SCPI parts regardless of the order: ``CONF FREQ``
+        - Search for SCPI parts, anchored at the beginning and at the end: ``:CONF FREQ;``
+        - Search for a parameter: ``P>EXT``
+        - Search for a SCPI with a parameter: ``ROSCillator P>EXT``
+        - Search full text: ``F>quency``
+
+.. tip::
+    
+    Use Drag&Drop on the SCPI Tree Command nodes to paste write or query snippets to your Python script. The Drag&Drop also works for SCPI editors.

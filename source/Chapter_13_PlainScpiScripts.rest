@@ -1,0 +1,215 @@
+.. _plain_scpi_scripts:
+
+SCPI scripts editor
+===================
+
+The 5-minute tour already runs **F5** in the ITW multi-line editor
+(:ref:`getting-started-five-minutes`). This page is the reference for **two
+different editors** that share the same language and the same control strip.
+
+Before you continue, :ref:`read out the SCPI Tree <function_panel_scpi_tree_read_tree>`.
+That enables SCPI auto-completion and search.
+
+Lines are plain SCPI commands, plus:
+
+	- full-line comments - lines starting with ``//`` or ``#`` or ``!``.
+	- comments after SCPI commands with the same syntax.
+	- a default target instrument (project ``.scpi`` files).
+	- an explicit target on a line, so one script can drive **multiple instruments**.
+
+.. hint::
+	SCPI scripts are **not transferable** - they can be executed only in PyCharm with the RsIC installed. They are a debugging tool before you write Python.
+	With the correct :ref:`snippet templates <settings-templates>`, you can drag the sequence into another language.
+	See :ref:`Writing Python Scripts per Drag-and-Drop <writing_python_scripts_drag_drop_from_scpi>`.
+
+ITW command banks (not a project file)
+""""""""""""""""""""""""""""""""""""""
+
+Open **Multi-line SCPI Editor** from the communicator. This editor is bound to
+**one instrument**. That instrument is always the default target. Content is
+**not** a ``.scpi`` file on disk: you get three **command banks** stored in
+plugin data (they survive export/import of plugin settings).
+
+.. image:: images/RsIcITW-multi_line_open.drawio.png
+
+.. image:: images/RsIcITW-multi_line_scpi_cmds.drawio.png
+
+Getting started already used **F5** on the whole buffer. You can also run one
+line (**F4**) or a selection:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_actual_line.drawio.png
+
+Only ``*IDN?`` ran. Select the first two lines and execute the selection:
+
+.. image:: images/RsIcScpiScripts-ml_clear_run_selection.drawio.png
+
+Right-click adds Run-to / Run-from. The control strip is listed under
+**Editor controls** below. The same strip appears on project ``.scpi`` files.
+
+Project ``.scpi`` files
+"""""""""""""""""""""""
+
+A project file uses the extension ``.scpi``. It is **not** bound to one
+instrument. Create one with *New → SCPI File*:
+
+.. image:: images/RsIcScpiScripts-create_new_scpi_script.drawio.png
+
+Type a name without an extension. The template includes
+``default_instrument``: every command goes to that instrument unless a line
+overrides it. The template fills the value from your file name:
+
+	.. image:: images/RsIcScpiScripts-scpi_script_template.drawio.png
+
+``default_instrument`` is an instrument **name** or **alias**. Hover and use
+the quick action **Select a valid instrument**.
+
+.. note::
+    If that comment is missing, RsIC uses the **file name**: it must start
+    with a name or alias (case insensitive).
+
+		- ``smw_test_script.scpi`` matches alias or name ``smw``.
+		- ``smw200a_test_script.scpi`` matches ``smw`` / ``SMW200A``.
+		- ``blablabla.scpi`` fails at execute unless you have that instrument.
+
+``// sleep: 1000`` pauses execution for 1000 ms.
+
+``smw --> SOURce1:POWer:AMPLitude -37.00`` sends that line to ``smw`` even if
+the default is ``fsw``. If the alias is unknown, a quick action offers a fix.
+
+.. _plain_scpi_controls_overview:
+
+Editor controls
+"""""""""""""""
+
+These buttons are the same on ITW banks and on project ``.scpi`` files.
+
+	.. image:: images/RsIcScpiScripts-scpi_editor_controls.drawio.png
+
+Description of the controls:
+
+- ``1: Execute all valid commands (F5)`` - executes all the commands in the script which are valid. Blank lines, comments and invalid commands are skipped. To execute a single line, use the shortcut **F4**.
+- ``2: Execute selected commands`` - executes all the commands in the selection.
+- ``3: Stop running actions`` - stops all the actions.
+- ``4: Pause the script`` - pause the execution. The currently executed line is finished, and then the script is paused.
+- ``5: Auto-Pause on Error`` - if switched ON, the execution pauses automatically on the first communication error.
+- ``6: Parse SCPI from file`` - select a file to parse SCPI commands from. This feature uses advanced procedures to recognize the file format and parse the relevant SCPI commands out of it. Try it on IO Traces or different scripts, like for example Python, MATLAB, C# or IECWin.
+- ``7: Parse SCPI from Clipboard`` - same as the parsing from file, but the source is a text content of the Clipboard.
+- ``8: Advanced Parser Window`` - opens the :doc:`Advanced SCPI parser <Chapter_15_AdvancedScpiParser>`.
+- ``9: Clear all inlays`` - clears all the visible inlays that are displayed when executing script or checking for SCPI commands.
+- ``10: Check in SCPI Tree`` - checks, whether the commands are present in the instrument's SCPI Tree.
+- ``11: Autoscroll`` - if ON, the window automatically scrolls by execution or parsing.
+- ``12: SCPI Editor Settings`` - opens the :ref:`Settings for the SCPI Editors <settings-scpi_editors>`.
+- ``13: Show more / less`` - shows/hides additional controls.
+- ``14: Execute all valid commands n-times`` - same as **1** but executes N-times. N is defined in the control **16**
+- ``15: Execute selected commands n-times`` - same as **2** but executes N-times. N is defined in the control **16**
+- ``16: Cycles count`` - defines, how many times to execute the script or the selected section.
+- ``17: Drag Area`` - drag one or more lines (selection) to another SCPI or Python script or your SCPI communicator. Based on the drop target context, the RsIC choses or offers different paste formats.
+
+.. note::
+    By splitting/moving editors, you might have a situation where one SCPI file is opened in multiple editors. In such case, the executing controls are only available in one of them.
+
+Writing scripts - SCPI Communicator drag function
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Once again, the important controls of the SCPI Communicator for the purpose of this chapter:
+
+.. image:: images/RsIcScpiScripts-comm_panel_essentials.drawio.png
+
+Enter the ``*IDN?`` to the SCPI Command Field and use the **SCPI Command Drag Button** to drag the command to the desired place in your script.
+
+Writing scripts - SCPI Auto-completion
+""""""""""""""""""""""""""""""""""""""""""""
+
+In the SCPI Editor, Press **CTRL+Space** to invoke the auto-complete suggestions:
+
+.. image:: images/RsIcScpiScripts-auto_completion.drawio.png
+
+Select your desired command header and use **TAB** to insert it. PyCharm shows you following header(s) of the command to insert.
+
+.. _writing_python_scripts_parsing_from_other_formats:
+
+Writing scripts - Parsing from other formats
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+RsIC has a powerful parser that can take almost any text format and extract plain SCPI commands out of it. You can use two sources for that - clipboard or file.
+Let us take an existing Python code for our FSW. Copy the code below into your Clipboard:
+
+.. code-block:: python
+
+    fsw.write("*RST")
+    fsw.query("*IDN?")
+    fsw.write("INSTrument:CREate:NEW IQ,'IQ 1'")
+    fsw.write("SENS:SWEEP:COUNT 6")
+    fsw.write("DISP:TRAC1:MODE BLANK")
+    fsw.write("INIT:CONT OFF")
+    fsw.write("INST:SEL 'Spectrum';*WAI")
+    fsw.write("SENSe:SWEep:MODE ESPectrum")
+    fsw.write("SENSe:ESPectrum:PRESet:STANdard 'WCDMA/3GPP/DL/3GPP_DL.xml'")
+    fsw.write("SENS:SWEEP:COUNT 5")
+
+Click the button **Parse SCPI from Clipboard**, and the Quick SCPI Parser dialog opens:
+
+.. image:: images/RsIcScpiScripts-parse_from_clipboard.drawio.png
+
+You can see the format was properly detected as a Python script. In case the format auto-detection did not work, you can always change it. Press OK, and the parsed plain SCPI commands are added to your script.
+
+Often you would like to reproduce the SCPI sequence that you have in a form of an **IO Trace** file. In this case, click the button **Parse from File**:
+
+.. image:: images/RsIcScpiScripts-parse_from_file_advanced.drawio.png
+
+Select the IO Trace file. For test purposes, you can try this one: :download:`rsvisa_log_smw.log`. Supported IO Traces are Rohde&Schwarz IO Trace and NI Trace Log exported as \*.txt file.
+
+For IO Traces, it is useful to have an option to filter out only commands for one or more specific instruments. The :doc:`Advanced SCPI parser <Chapter_15_AdvancedScpiParser>` does exactly that.
+	
+Writing scripts - Searching for commands
+""""""""""""""""""""""""""""""""""""""""""""""
+
+Another option to add commands, is to search for them in the SCPI Tree. You can use the :doc:`SCPI tree <Chapter_07_FunctionPanel_ScpiTree>`, or search directly in the script. Right-click (or press F3) on a command or an empty line, and select **Search for Command**:
+
+.. image:: images/RsIcScpiScripts-search_for_command.drawio.png
+
+The already written command is pre-filled to the search box, and you can adjust it. **Double-click** on the desired command line in the table to insert it into your script:
+
+.. image:: images/RsIcScpiScripts-search_command_window.drawio.png
+
+.. tip::
+	The Search Window is persistent and is by default updated every time you change line in your SCPI Editor, or you type text. Because the space character is used as a separator between the commands and parameters, the search text ignores the characters after the space. To overcome this, use double-spaces. For example, ``freq  center  cw`` is then converted to the search string ``freq center cw``.
+
+Executing scripts
+"""""""""""""""""""""""
+
+To execute the script, all the involved instruments must have the Instrument Tool Windows active, and their connections established.
+
+When you execute a script, selection, or a single line, the results of the execution are presented as inlays directly in the editor:
+
+.. image:: images/RsIcScpiScripts-scpi_script_executed.drawio.png
+
+You can adjust the inlay properties in the :ref:`Settings for the SCPI Editors <settings-scpi_editors>`.
+
+.. hint::
+    Clear the inlays with **Clear all inlays** button, or just a portion of them by selecting the desired lines and right-click context menu **Clear Inlays**.
+	
+Checking the commands
+"""""""""""""""""""""""""""
+
+An especially useful feature is to check the commands in the script, whether they are defined in the instrument's SCPI Tree. This provides a quick plausibility check. Press the **Check in SCPI Tree** button:
+
+.. image:: images/RsIcScpiScripts-check_for_commands.drawio.png
+
+Green inlays signal how many matches in the SCPI were found. Red inlays mark the commands not present. Do this quick check to prevent unnecessary VISA timeout errors when executing the script with unknown commands.
+
+SCPI Editor color scheme
+""""""""""""""""""""""""""""""
+
+You might have noticed that the SCPI Editor text has several different colors. The cool thing is, you can fully customize it. Go to **PyCharm settings -> Editor -> Color Scheme -> SCPI**, and let us for demostration purposes adjust the following:
+
+	- the Command header to be bold green.
+	- the Command header splitter to have gray background.
+	- the Command numeric suffix to bold violet.
+	- the Parameter to italic.
+	
+This looks something like this:
+
+.. image:: images/RsIcScpiScripts-color_scheme.drawio.png
+
+.. _plain_scpi_editor_flavors:

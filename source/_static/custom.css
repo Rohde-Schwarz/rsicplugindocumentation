@@ -1,0 +1,312 @@
+/* Named faces. The theme's web fonts are not shipped. */
+html body,
+html body .btn,
+html body .rst-versions,
+html body input[type],
+html body textarea,
+html body select {
+    font-family: Arial, sans-serif;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body legend,
+.rst-content .toctree-wrapper > p.caption,
+.rst-content .sidebar .sidebar-title {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Member declarations. The theme paints nested members gray; use the same light-blue bar as C#. */
+html.writer-html5 .rst-content dl.py > dt {
+    background: #e7f2fa !important;
+    color: #2980b9 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+/* A get/set pair stays one block. The second signature sits just under the first. */
+html.writer-html5 .rst-content dl.py.cmd-pair > dt + dt {
+    margin-top: 8px !important;
+}
+
+/* The line under a member separates that block from the next one. */
+html.writer-html5 .rst-content dl.py.method,
+html.writer-html5 .rst-content dl.py.property,
+html.writer-html5 .rst-content dd > dl.py.class {
+    border-bottom: 2px solid #7d97a8;
+    margin-bottom: 1.75em !important;
+    padding-bottom: 1.25em;
+}
+
+/* The theme's ".property { display: inline-block }" also matches dl.py.property, so short properties sit side by side. */
+html.writer-html5 .rst-content dl.py.property {
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* SCPI command list. Same light-blue bar as a member, monospaced. */
+.rst-content dl.scpi > dt {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
+    background: #e7f2fa;
+    color: #2980b9;
+    border-radius: 10px;
+    border: none !important;
+    padding: 10px !important;
+    overflow-wrap: anywhere;
+}
+
+/* Read (red) and write (green) arrows on members and SCPI commands. */
+dt.sig i.r,
+dt.sig i.w,
+dl.scpi i.r,
+dl.scpi i.w {
+    display: inline-block;
+    width: 0.95em;
+    height: 0.95em;
+    margin-left: 0.35em;
+    font-style: normal;
+    vertical-align: -0.12em;
+    background: url("access-arrows.svg") left center / 200% 100% no-repeat;
+}
+
+dt.sig i.w,
+dl.scpi i.w {
+    background-position: right center;
+}
+
+/* Member arrows lead the declaration. SCPI arrows stay after the command. */
+.rst-content dl.py > dt.sig > i.r,
+.rst-content dl.py > dt.sig > i.w {
+    margin-left: 0;
+    margin-right: 0.35em;
+}
+
+dt.sig i.r + i.w,
+dl.scpi i.r + i.w {
+    margin-left: 0.18em;
+}
+
+/* Group and subgroup names, such as System:Beeper:Complete. */
+.rst-content section.group > h1,
+.rst-content p.rubric + div.toctree-wrapper a,
+.wy-menu-vertical li.toctree-l2 a:not([href*="#"]),
+.wy-menu-vertical li.toctree-l3 a:not([href*="#"]),
+.wy-menu-vertical li.toctree-l4 a:not([href*="#"]),
+.wy-menu-vertical li.toctree-l5 a:not([href*="#"]),
+.wy-menu-vertical li.toctree-l6 a:not([href*="#"]) {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
+}
+
+/* The common interfaces end at IviDirectIo, or at Reliability when that page is present. */
+.wy-menu-vertical li.toctree-l2:has(> a[href$="ivi_direct_io.html"]),
+.wy-menu-vertical li.toctree-l2:has(> a[href$="reliability.html"]) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+    margin-bottom: 0.45em;
+    padding-bottom: 0.45em;
+}
+
+.wy-menu-vertical li.toctree-l2:has(> a[href$="ivi_direct_io.html"]):has(+ li > a[href$="reliability.html"]) {
+    border-bottom: none;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Code blocks keep the same corner radius as the member bars. */
+.rst-content div[class^=highlight] {
+    border-radius: 10px;
+}
+
+/* Zenburn paints console output #5b605e, which sits too close to the #3f3f3f background. */
+.rst-content .highlight .go {
+    color: #dcdccc;
+    font-weight: normal;
+}
+
+/* Double-backtick text. Lighter than a Zenburn code block so the chip is less harsh on the white page. */
+.rst-content code.literal,
+.rst-content tt.literal {
+    color: #dcdccc;
+    background: #5a5a5a;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85em;
+    padding: 1px 6px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* A literal that must stay in one piece, such as the instrument name. */
+.rst-content code.literal.nowrap {
+    white-space: nowrap;
+    overflow-wrap: normal;
+}
+
+/* Admonitions. A tinted card with a colored edge, instead of the theme's solid title bar. */
+.rst-content .admonition {
+    border: none;
+    border-left: 4px solid #2980b9;
+    border-radius: 10px;
+    padding: 12px 16px;
+    background: #e7f2fa;
+}
+
+.rst-content .admonition > .admonition-title {
+    background: transparent;
+    color: #1a5276;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 0 6px;
+    line-height: 1.4;
+}
+
+.rst-content .note,
+.rst-content .seealso {
+    background: #e7f2fa;
+    border-left-color: #2980b9;
+}
+
+.rst-content .note > .admonition-title,
+.rst-content .seealso > .admonition-title {
+    background: transparent;
+    color: #1a5276;
+}
+
+.rst-content .tip,
+.rst-content .hint,
+.rst-content .important {
+    background: #e8f6ee;
+    border-left-color: #2e7d32;
+}
+
+.rst-content .tip > .admonition-title,
+.rst-content .hint > .admonition-title,
+.rst-content .important > .admonition-title {
+    background: transparent;
+    color: #1b5e20;
+}
+
+.rst-content .warning,
+.rst-content .attention,
+.rst-content .caution,
+.rst-content .admonition-todo {
+    background: #fff6e6;
+    border-left-color: #e6a100;
+}
+
+.rst-content .warning > .admonition-title,
+.rst-content .attention > .admonition-title,
+.rst-content .caution > .admonition-title,
+.rst-content .admonition-todo > .admonition-title {
+    background: transparent;
+    color: #8a5a00;
+}
+
+.rst-content .danger,
+.rst-content .error {
+    background: #fdecea;
+    border-left-color: #c62828;
+}
+
+.rst-content .danger > .admonition-title,
+.rst-content .error > .admonition-title {
+    background: transparent;
+    color: #9b1c1c;
+}
+
+.rst-content .admonition div[class^=highlight] {
+    margin: 8px 0 0;
+}
+
+/* The theme's icon font is not shipped. Draw the few icons the pages use with ordinary characters. */
+.fa-bars:before {
+    content: "\2630";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.fa-arrow-circle-left:before,
+.icon-circle-arrow-left:before {
+    content: "\2190";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.fa-arrow-circle-right:before,
+.icon-circle-arrow-right:before {
+    content: "\2192";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.icon-home:before,
+.fa-home:before {
+    content: "\2302";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.wy-menu-vertical li button.toctree-expand:before {
+    content: "+";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.wy-menu-vertical li.current > a button.toctree-expand:before,
+.wy-menu-vertical li.on a button.toctree-expand:before {
+    content: "\2212";
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+html.writer-html5 .rst-content .headerlink {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.rst-content.style-external-links a.reference.external:after,
+.wy-side-nav-search > div.switch-menus > div.version-switch:has(> select):after {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.rst-content.style-external-links a.reference.external:after {
+    content: "\2197";
+}
+
+.wy-side-nav-search > div.switch-menus > div.version-switch:has(> select):after {
+    content: "\25BE";
+}
+
+/* Force wrap for all Sphinx code blocks */
+.highlight pre {
+    white-space: pre-wrap !important;       /* CSS3 */
+    white-space: -moz-pre-wrap !important;  /* Firefox */
+    white-space: -pre-wrap !important;       /* Opera */
+    white-space: -o-pre-wrap !important;     /* Opera */
+    word-wrap: break-word !important;        /* Internet Explorer */
+}
+
+/* Previous / Next: Zenburn block colors, same corner radius as code blocks. */
+.rst-footer-buttons .btn,
+.rst-footer-buttons .btn-neutral {
+    background: #3f3f3f !important;
+    color: #dcdccc !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 8px 16px;
+}
+
+.rst-footer-buttons .btn:visited,
+.rst-footer-buttons .btn-neutral:visited {
+    color: #dcdccc !important;
+}
+
+.rst-footer-buttons .btn:hover,
+.rst-footer-buttons .btn-neutral:hover,
+.rst-footer-buttons .btn:focus,
+.rst-footer-buttons .btn-neutral:focus {
+    background: #5a5a5a !important;
+    color: #f0eddc !important;
+}

@@ -1,0 +1,44 @@
+.. _function_panel_curves:
+
+Curves
+======
+
+Curves provide a quick way of querying traces and waveforms from your instrument. You can use the pre-defined queries, adjust them, or define your own.
+Any response from the instrument that can be interpreted as an array of numbers can be displayed in the Curves XY chart.
+You can save or copy them as pictures or CSV text. Curves are also an easy way to check the format of values received from binary data blocks.
+
+While the Curves tab is selected, **every** instrument response (including a query from the SCPI communicator) is checked for array content and may appear on the chart. Switch to another function-panel tab if you do not want that.
+
+.. image:: images/FunctionPanel_Curves-func_panel_curves.drawio.png
+
+Description of the controls:
+
+- ``1: Function Panel Curves`` - select this tab to access Curves Features. When selected, each instrument response is checked for array content and potentially displayed in the chart.
+- ``2: Pre-defined queries`` - connect to the instrument and click on one of the lines to query the trace / waveform.
+- ``3: Copy to clipboard as picture`` - copy the picture to clipboard.
+- ``4: Save to file as picture`` - save the current chart content to a PNG file.
+- ``5: Copy to clipboard as csv-text`` - copy the data to clipboard as csv-text.
+- ``6: Save to file as csv-text`` - save the current chart content to a csv-text file.
+- ``7: Keep the chart size constant`` - if checked, the chart size does not change if you resize the Tool Window. This is helpful, if you are making set of screenshots where you want them to all have the same size. You can define this size in the **Curves Settings** dialog (see control 8).
+- ``8: Open the curves settings`` - settings for the chart and data. For more details, see :ref:`Curves Settings <settings-curves>`.
+- ``9: Binary Data Numbers Type`` - select the type of the received data. This only affects the binary responses. For ASCII responses, the RsIC ignores this setting.
+- ``10: Binary Data Endianness`` - in binary data, endianness defines which byte of the number comes as first. MSB (Most Significant byte first) or LSB (Least significant byte first). Here, you can define whether to swap the endianness, or detect it automatically. For ASCII data this setting is ignored.
+- ``11: Chart Data Source Selector`` - define, which data to display on which axis. X axis is shared by both Y-A-Data, and Y-B-Data.
+- ``12: Displayed Chart Data`` - Area for displaying the curve. You can zoom on the points or scroll left/right. The chart also has right-click menu with context actions.
+
+Pre-defined queries
+"""""""""""""""""""
+
+The table with pre-defined queries allows you to script several operations, meaning several SCPI command / queries to retrieve the data you want. You can query only Y-data, and the X-data is simple 0-based or 1-based integer index,
+or you can query XY data in two or more queries. You can also query two Y-traces and feed them into Y-A-Data, Y-B-Data, for example two traces of the spectrum analyzer. To see what is possible, right-click on one of the pre-defined queries and choose **Edit**.
+We will do this for the **Trace XY Query** item:
+
+.. image:: images/FunctionPanel_Curves-query_edit.drawio.png
+
+The command fields all have SCPI code-completion. Press **CTRL+Space** to open it.
+Check the tooltips to see the function of each field.
+
+.. note::
+	- ;*OPC suffix helps the query to finish immediately, if there was an error executing it. That speeds up the entire process in case of an error.
+	- When you execute commands from the SCPI Communicator, you can only affect the response equivalent to the **Query Y-Data**. To be able to do more complex queries in a sequence, you have to define a Curve Query.
+	

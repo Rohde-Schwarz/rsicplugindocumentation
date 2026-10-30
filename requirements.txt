@@ -1,0 +1,4 @@
+docutils
+sphinx-copybutton
+recommonmark
+sphinx-rtd-theme
